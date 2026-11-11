@@ -6923,17 +6923,20 @@ button[aria-busy="true"] {
 .day-name {
     writing-mode: vertical-rl;
     text-orientation: upright;
-    font-size: 0.95rem;
+    white-space: nowrap;
+    font-size: 0.82rem;
     color: #0c2d54;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.06em;
     font-weight: 800;
     margin: 0 auto;
-    padding: 20px 7px;
+    padding: 12px 5px;
+    line-height: 1;
     background: #dbeafe;
     border: 2px solid #93c5fd;
     border-radius: 6px;
     box-shadow: none;
+    overflow: visible;
 }
 
 .para-cell {
@@ -7200,9 +7203,9 @@ button[aria-busy="true"] {
         padding: 6px 0;
     }
     .day-name {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        padding: 10px 3px;
+        font-size: 0.68rem;
+        letter-spacing: 0.03em;
+        padding: 8px 3px;
         border-radius: 12px;
     }
     .header-text-vertical {
