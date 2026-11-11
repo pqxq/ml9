@@ -7,7 +7,7 @@ import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mcl_site.settings.dev')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ml9.settings.dev')
 
 import django
 django.setup()

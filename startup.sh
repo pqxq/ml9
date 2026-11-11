@@ -34,7 +34,7 @@ MAX_REQUESTS_JITTER=${GUNICORN_MAX_REQUESTS_JITTER:-100}
 
 # Start Gunicorn with memory recycling, threading, and copy-on-write preloading
 echo "Starting Gunicorn on port ${PORT:-8000} with ${WORKERS} workers, ${THREADS} threads, preload..."
-exec gunicorn mcl_site.wsgi:application \
+exec gunicorn ml9.wsgi:application \
     --bind=0.0.0.0:${PORT:-8000} \
     --workers=${WORKERS} \
     --threads=${THREADS} \

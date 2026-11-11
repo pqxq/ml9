@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=True
-      - DJANGO_SETTINGS_MODULE=mcl_site.settings.dev
+      - DJANGO_SETTINGS_MODULE=ml9.settings.dev
       - PYTHONUNBUFFERED=1
     volumes:
       - .:/app

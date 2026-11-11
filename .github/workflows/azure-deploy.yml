@@ -37,15 +37,15 @@ jobs:
     
     - name: Run tests
       run: |
-        python manage.py test --settings=mcl_site.settings.dev
+        python manage.py test --settings=ml9.settings.dev
       env:
-        DJANGO_SETTINGS_MODULE: mcl_site.settings.dev
+        DJANGO_SETTINGS_MODULE: ml9.settings.dev
     
     - name: Collect static files
       run: |
         python manage.py collectstatic --noinput
       env:
-        DJANGO_SETTINGS_MODULE: mcl_site.settings.dev
+        DJANGO_SETTINGS_MODULE: ml9.settings.dev
     
     - name: Create deployment package
       run: |
