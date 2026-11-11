@@ -38,7 +38,12 @@ class CloudflareMiddleware:
             response["Cache-Control"] = "private, no-cache, no-store, must-revalidate, max-age=0"
             response["Pragma"] = "no-cache"
 
-        # 2. Allow Cloudflare to cache media files at the edge to save server RAM/CPU
+        # 2. Keep public HTML fresh so shared layout changes are visible immediately.
+        elif response.get("Content-Type", "").startswith("text/html"):
+            response["Cache-Control"] = "no-cache, no-store, must-revalidate, max-age=0"
+            response["Pragma"] = "no-cache"
+
+        # 3. Allow Cloudflare to cache media files at the edge to save server RAM/CPU
         elif path.startswith("/media/") and response.status_code == 200:
             if "Cache-Control" not in response or "private" not in response.get("Cache-Control", ""):
                 response["Cache-Control"] = "public, max-age=2592000, stale-while-revalidate=86400"

@@ -1,6 +1,4 @@
-{% load static wagtailcore_tags cache %}
-
-{% cache 86400 site_footer_v2 %}
+{% load static wagtailcore_tags %}
 <footer class="site-footer">
     <div class="footer-main">
         <div class="container">
@@ -112,6 +110,15 @@
                 <div class="copyright">
                     © {% now "Y" %} Миколаївський ліцей №9. Всі права захищені.
                 </div>
+                <div class="footer-contribution">
+                    Сайт розвивають учні та випускники ліцею. Долучайтеся до розвитку проєкту.
+                    <a href="https://github.com/pqxq/mcl-site/" target="_blank" rel="noopener noreferrer"
+                        class="footer-github-link"
+                        aria-label="Відкрити код сайту на GitHub">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+                </div>
                 <div class="footer-bottom-links">
                     <a href="/privacy/">Політика конфіденційності</a>
                     <span class="divider">•</span>
@@ -121,4 +128,3 @@
         </div>
     </div>
 </footer>
-{% endcache %}

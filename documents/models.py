@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
@@ -72,7 +70,6 @@ class DocumentsIndexPage(Page):
         verbose_name = "Документи"
         verbose_name_plural = "Документи"
 
-    @method_decorator(cache_page(60 * 15))
     def serve(self, request, *args, **kwargs):
         return super().serve(request, *args, **kwargs)
 

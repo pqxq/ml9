@@ -3,8 +3,6 @@ from datetime import datetime, time
 from django.core.paginator import Paginator
 from django.db import models
 from django.utils import timezone
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
@@ -92,7 +90,6 @@ class GalleryIndexPage(Page):
     class Meta:
         verbose_name = "Галерея (системна)"
 
-    @method_decorator(cache_page(60 * 15))
     def serve(self, request, *args, **kwargs):
         return super().serve(request, *args, **kwargs)
 

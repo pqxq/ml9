@@ -1,6 +1,4 @@
 from django.db import models
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
@@ -43,7 +41,6 @@ class HomePage(Page):
 
     max_count = 1
 
-    @method_decorator(cache_page(60 * 15))
     def serve(self, request, *args, **kwargs):
         return super().serve(request, *args, **kwargs)
 
@@ -560,7 +557,6 @@ class AboutPageHighlight(Orderable):
 
     def __str__(self) -> str:
         return self.title
-
 
 
 

@@ -3507,7 +3507,7 @@ button[aria-busy="true"] {
 }
 
 .footer-main {
-    padding: 2.5rem 0 2rem;
+    padding: 2.25rem 0 1.75rem;
 }
 
 /* Brand Section */
@@ -3594,7 +3594,7 @@ button[aria-busy="true"] {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-family: var(--font-heading);
     position: relative;
     padding-bottom: 0.75rem;
@@ -3713,15 +3713,14 @@ button[aria-busy="true"] {
 /* Footer Bottom */
 .footer-bottom {
     background: rgba(0, 0, 0, 0.2);
-    padding: 1rem 0;
+    padding: 0.85rem 0;
 }
 
 .footer-bottom-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .copyright {
@@ -3729,20 +3728,71 @@ button[aria-busy="true"] {
     font-size: 0.875rem;
 }
 
+.footer-contribution {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.825rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footer-contribution .footer-github-link {
+    flex-shrink: 0;
+    margin-left: 0.15rem;
+}
+
 .footer-bottom-links {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    justify-self: end;
+    min-width: max-content;
 }
 
 .footer-bottom-links a {
-    color: rgba(255, 255, 255, 0.5);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgba(255, 255, 255, 0.62);
     font-size: 0.875rem;
     transition: color 0.2s ease;
 }
 
 .footer-bottom-links a:hover {
     color: var(--accent);
+}
+
+.footer-github-link {
+    padding: 0.42rem 0.8rem;
+    border: 1px solid rgba(212, 175, 55, 0.65);
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent) !important;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition),
+        border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.footer-github-link:hover,
+.footer-github-link:focus-visible {
+    color: var(--primary) !important;
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: 0 0.35rem 1rem rgba(212, 175, 55, 0.22);
+    transform: translateY(-1px);
+}
+
+.footer-github-link:active {
+    transform: translateY(0);
+    box-shadow: 0 0.15rem 0.45rem rgba(212, 175, 55, 0.18);
 }
 
 .footer-bottom-links .divider {
@@ -3752,7 +3802,7 @@ button[aria-busy="true"] {
 /* Footer Responsive */
 @media (max-width: 991.98px) {
     .footer-main {
-        padding: 2.5rem 0 2rem;
+        padding: 2rem 0 1.5rem;
     }
 
     .footer-brand-section {
@@ -3804,8 +3854,18 @@ button[aria-busy="true"] {
     }
 
     .footer-bottom-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        justify-items: center;
         text-align: center;
+    }
+
+    .footer-contribution {
+        grid-row: auto;
+    }
+
+    .footer-bottom-links {
+        justify-self: center;
+        min-width: 0;
     }
 }
 
