@@ -28,7 +28,7 @@
                     {% image page.photo width-800 format-webp as photo %}
                     <img src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" class="profile-photo" loading="lazy" decoding="async" alt="{{ photo.alt|default:page.title }}">
                     {% else %}
-                    <div class="profile-photo-placeholder d-flex align-items-center justify-content-center w-100 h-100" style="aspect-ratio: 1; background: var(--gray-100); color: var(--gray-400);">
+                    <div class="profile-photo-placeholder d-flex align-items-center justify-content-center w-100 h-100">
                         <i class="bi bi-person display-1" aria-hidden="true"></i>
                     </div>
                     {% endif %}
@@ -54,7 +54,7 @@
                     {% if page.subjects.all %}
                     <div class="mb-4">
                         <div class="person-section-label">
-                            <i class="bi bi-book-half" style="color: var(--accent);"></i> Предмети викладання
+                            <i class="bi bi-book-half icon-accent"></i> Предмети викладання
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             {% for item in page.subjects.all %}
@@ -127,5 +127,4 @@
 </div>
 </section>
 {% endblock %}
-
 

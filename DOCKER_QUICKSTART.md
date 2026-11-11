@@ -36,10 +36,10 @@ docker run -it \
 
 ## Port Reference
 
-| Service | Container port | Host port | URL |
-|---|---|---|---|
-| Django dev server | 8000 | 8000 | http://localhost:8000 |
-| Wagtail admin | 8000 | 8000 | http://localhost:8000/admin |
+| Service           | Container port | Host port | URL                         |
+| ----------------- | -------------- | --------- | --------------------------- |
+| Django dev server | 8000           | 8000      | http://localhost:8000       |
+| Wagtail admin     | 8000           | 8000      | http://localhost:8000/admin |
 
 ## Common Tasks
 
@@ -80,12 +80,12 @@ To load the file automatically in Compose, add `env_file: .env` to the `web` ser
 
 ## Key Files
 
-| File | Purpose |
-|---|---|
-| `Dockerfile` | Production image — Gunicorn + PostgreSQL |
-| `Dockerfile.dev` | Development image — Django dev server + SQLite |
-| `docker-compose.yml` | Compose configuration (runs the dev image) |
-| `startup.sh` | Production entrypoint: runs migrations then starts Gunicorn |
+| File                   | Purpose                                                     |
+| ---------------------- | ----------------------------------------------------------- |
+| `Dockerfile`         | Production image — Gunicorn + PostgreSQL                   |
+| `Dockerfile.dev`     | Development image — Django dev server + SQLite             |
+| `docker-compose.yml` | Compose configuration (runs the dev image)                  |
+| `startup.sh`         | Production entrypoint: runs migrations then starts Gunicorn |
 
 ## Troubleshooting
 

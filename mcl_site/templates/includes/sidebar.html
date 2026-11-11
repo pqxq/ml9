@@ -72,52 +72,6 @@
             {% endfor %}
         </ul>
     </nav>
-    <script>
-        (function() {
-            try {
-                var s = sessionStorage.getItem('sidebar_scroll_top');
-                if (s !== null) {
-                    var el = document.getElementById('sidebarNav');
-                    if (el) el.scrollTop = parseInt(s, 10);
-                }
-            } catch(e) {}
-
-            var searchInput = document.querySelector('.sidebar-search-input');
-            if (searchInput) {
-                searchInput.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' || e.code === 'Escape') {
-                        searchInput.blur();
-                    }
-                });
-            }
-
-            document.addEventListener('keydown', function(e) {
-                var tag = document.activeElement ? document.activeElement.tagName : '';
-                if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag) || (document.activeElement && document.activeElement.isContentEditable)) {
-                    return;
-                }
-
-                var isSlash = (e.code === 'Slash' || e.code === 'NumpadDivide' || e.key === '/') && !e.altKey && !e.ctrlKey && !e.metaKey;
-                var isCtrlK = (e.ctrlKey || e.metaKey) && (e.code === 'KeyK' || e.key === 'k' || e.key === 'K');
-
-                if (isSlash || isCtrlK) {
-                    if (window.innerWidth < 992) {
-                        var sidebar = document.getElementById('sidebar');
-                        if (!sidebar || !sidebar.classList.contains('show')) {
-                            window.location.href = '/search/';
-                            return;
-                        }
-                    }
-                    if (searchInput) {
-                        e.preventDefault();
-                        searchInput.focus();
-                        searchInput.select();
-                    }
-                }
-            });
-        })();
-    </script>
-
     <div class="sidebar-footer">
         <a href="/publichna-informatsiia/vstup-do-litseiu/" class="btn btn-primary-custom w-100">
             <i class="bi bi-mortarboard me-2"></i>Вступ

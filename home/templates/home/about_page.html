@@ -26,7 +26,6 @@
         filter: blur(12px);
         z-index: 0;
         pointer-events: none;
-        animation: pulse-halo 4s ease-in-out infinite alternate;
     }
     
     .about-hero-emblem {
@@ -35,28 +34,10 @@
         height: clamp(95px, 13vw, 135px);
         width: auto;
         filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.25));
-        animation: float-emblem 6s ease-in-out infinite;
         display: block;
         margin: 0 auto;
     }
     
-    @keyframes float-emblem {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-7px); }
-    }
-
-    @keyframes pulse-halo {
-        0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.6; }
-        100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .about-hero-emblem,
-        .about-hero-emblem-halo {
-            animation: none !important;
-        }
-    }
-
     /* Quick Jump Navigation */
     .about-quick-nav-wrapper {
         margin-top: 2.25rem;
@@ -837,7 +818,7 @@
 <section class="page-hero">
     <div class="hero-bg-pattern"></div>
     <div class="container">
-        <div class="hero-content text-center" data-aos="fade-up">
+        <div class="hero-content text-center">
             <!-- Emblem with Halo Effect -->
             <div class="about-hero-emblem-wrapper">
 
@@ -848,13 +829,13 @@
             {% if page.hero_badge %}
             <div class="mb-2">
                 <span class="hero-badge">
-                    <i class="bi bi-patch-check-fill me-1" style="color: var(--accent);"></i>
+                    <i class="bi bi-patch-check-fill me-1 icon-accent"></i>
                     {{ page.hero_badge }}
                 </span>
             </div>
             {% endif %}
             
-            <h1 class="hero-title" style="text-wrap: balance;">{{ page.title }}</h1>
+            <h1 class="hero-title hero-title-balanced">{{ page.title }}</h1>
             
             {% if page.subtitle %}
             <p class="hero-subtitle">
@@ -914,7 +895,7 @@
 {% if page.stats.all %}
 <section class="about-section about-section-white">
     <div class="container">
-        <div class="about-stats-grid" data-aos="fade-up">
+        <div class="about-stats-grid">
             {% for stat in page.stats.all %}
             <div class="about-stat-card">
                 <div class="about-stat-icon-box">
@@ -938,7 +919,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-11 col-xl-10">
-                <div class="about-intro-box" data-aos="fade-up">
+                <div class="about-intro-box">
                     <div class="about-section-badge">
                         <i class="bi bi-stars"></i> Простір можливостей
                     </div>
@@ -968,7 +949,7 @@
 {% if page.mission or page.values or page.value_pillars.all %}
 <section id="about-values" class="about-section about-section-white">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-compass"></i> Наші орієнтири
             </span>
@@ -980,7 +961,7 @@
             
             <!-- Mission Card -->
             {% if page.mission %}
-            <div class="{% if page.values or page.value_pillars.all %}col-lg-6{% else %}col-12{% endif %}" data-aos="fade-up" data-aos-delay="100">
+            <div class="{% if page.values or page.value_pillars.all %}col-lg-6{% else %}col-12{% endif %}">
                 <div class="bento-card">
                     <div class="bento-icon-wrapper">
                         <i class="bi bi-bullseye"></i>
@@ -995,7 +976,7 @@
 
             <!-- Values Card -->
             {% if page.values or page.value_pillars.all %}
-            <div class="{% if page.mission %}col-lg-6{% else %}col-12{% endif %}" data-aos="fade-up" data-aos-delay="200">
+            <div class="{% if page.mission %}col-lg-6{% else %}col-12{% endif %}">
                 <div class="bento-card">
                     <div class="bento-icon-wrapper">
                         <i class="bi bi-heart-fill"></i>
@@ -1033,7 +1014,7 @@
 {% if page.academic_profiles.all %}
 <section id="about-profiles" class="about-section about-section-gray">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-book"></i> Профільне навчання
             </span>
@@ -1045,7 +1026,7 @@
 
         <div class="row g-4">
             {% for profile in page.academic_profiles.all %}
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+            <div class="col-lg-3 col-md-6">
                 <div class="profile-card">
                     {% if profile.badge %}
                     <span class="profile-badge">{{ profile.badge }}</span>
@@ -1074,7 +1055,7 @@
 {% if about_subpages %}
 <section id="about-subpages" class="about-section about-section-white">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-diagram-3"></i> Структура закладу
             </span>
@@ -1086,7 +1067,7 @@
 
         <div class="row g-4">
             {% for item in about_subpages %}
-            <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+            <div class="col-lg-6 col-xl-3">
                 <a href="{{ item.url }}" class="subpage-card" aria-label="Перейти до розділу {{ item.title }}">
                     <div class="subpage-header">
                         <div class="subpage-icon">
@@ -1112,7 +1093,7 @@
 {% if page.building_image or page.facilities.all %}
 <section id="about-facilities" class="about-section about-section-gray">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-building"></i> Інфраструктура
             </span>
@@ -1122,7 +1103,7 @@
             {% endif %}
         </div>
 
-        <div class="facility-box" data-aos="fade-up">
+        <div class="facility-box">
             
             {% if page.building_image %}
             <div class="facility-hero-img-wrap">
@@ -1153,7 +1134,7 @@
         </div>
 
         {% if gallery_index_page %}
-        <div class="text-center mt-4 pt-2" data-aos="fade-up">
+        <div class="text-center mt-4 pt-2">
             <a href="{{ gallery_index_page.url }}" class="btn btn-outline-primary-custom rounded-pill px-4">
                 <i class="bi bi-images me-2"></i>Переглянути фотогалерею ліцею
             </a>
@@ -1167,7 +1148,7 @@
 {% if page.history %}
 <section id="about-history" class="about-section about-section-white">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-clock-history"></i> Літопис закладу
             </span>
@@ -1175,7 +1156,7 @@
             <p class="about-section-subtitle">Шлях зростання, традицій та освітніх здобутків крізь десятиліття</p>
         </div>
 
-        <div class="editorial-container" data-aos="fade-up">
+        <div class="editorial-container">
             <div class="editorial-paper">
                 <div class="editorial-body">
                     {{ page.history|richtext }}
@@ -1190,7 +1171,7 @@
 {% if page.achievements %}
 <section id="about-achievements" class="about-section about-section-gray">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-award-fill"></i> Гордість ліцею
             </span>
@@ -1198,7 +1179,7 @@
             <p class="about-section-subtitle">Здобутки учнів та педагогічного колективу на олімпіадах, конкурсах та турнірах</p>
         </div>
 
-        <div class="editorial-container" data-aos="fade-up">
+        <div class="editorial-container">
             <div class="editorial-paper">
                 <div class="editorial-body">
                     {{ page.achievements|richtext }}
@@ -1213,7 +1194,7 @@
 {% if page.faqs.all %}
 <section id="about-faq" class="about-section about-section-white">
     <div class="container">
-        <div class="about-section-header" data-aos="fade-up">
+        <div class="about-section-header">
             <span class="about-section-badge">
                 <i class="bi bi-question-circle"></i> Запитання та відповіді
             </span>
@@ -1224,13 +1205,13 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-lg-9 col-xl-8" data-aos="fade-up">
+            <div class="col-lg-9 col-xl-8">
                 <div class="accordion about-accordion" id="aboutFaqAccordion">
                     {% for faq in page.faqs.all %}
                     <div class="accordion-item">
                         <h3 class="accordion-header" id="faqHeading{{ forloop.counter }}">
                             <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faqCollapse{{ forloop.counter }}">
-                                <i class="bi bi-question-circle-fill me-2" style="color: var(--accent);"></i>
+                                <i class="bi bi-question-circle-fill me-2 icon-accent"></i>
                                 {{ faq.question }}
                             </button>
                         </h3>
@@ -1252,7 +1233,7 @@
 {% if page.cta_title or page.cta_text or page.cta_primary_text %}
 <section class="about-section about-section-gray">
     <div class="container">
-        <div class="about-cta-card" data-aos="zoom-in">
+        <div class="about-cta-card">
             {% if page.cta_title %}
             <h2 class="about-cta-title">{{ page.cta_title }}</h2>
             {% endif %}

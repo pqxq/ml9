@@ -18,7 +18,7 @@
 </section>
 
 
-<section class="document-content-section" style="min-height: 60vh;">
+<section class="document-content-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -27,7 +27,7 @@
                     {% for doc in page.documents.all %}
                     <div class="doc-list-item">
                         <div class="d-flex align-items-center gap-3">
-                            <div class="document-icon-wrapper flex-shrink-0" style="width: 46px; height: 46px; background: rgba(13, 31, 51, 0.06); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.25rem;">
+                            <div class="document-icon-wrapper flex-shrink-0">
                                 <i class="bi bi-file-earmark-pdf"></i>
                             </div>
                             <div>
@@ -58,5 +58,4 @@
     </div>
 </section>
 {% endblock %}
-
 

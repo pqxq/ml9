@@ -103,7 +103,7 @@
     }
     
     .btn-admissions-cta {
-        background-color: var(--accent, #dca82b);
+        background-color: #d4af37;
         color: var(--primary, #1e3a5f);
         border: none;
         padding: 1rem 3rem;
@@ -120,7 +120,7 @@
     
     .btn-admissions-cta:hover {
         transform: translateY(-3px);
-        background-color: #ebd168;
+        background-color: #e8c65f;
         color: var(--primary, #1e3a5f);
         box-shadow: 0 12px 30px rgba(220, 168, 43, 0.5);
     }
@@ -184,8 +184,8 @@
     <div class="hero-bg-pattern"></div>
     <div class="container">
         <div class="hero-content text-center">
-            <h1 class="hero-title" data-aos="fade-up">{{ page.title }}</h1>
-            <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Зробіть перший крок до якісної класичної освіти</div>
+            <h1 class="hero-title">{{ page.title }}</h1>
+            <div class="hero-subtitle">Зробіть перший крок до якісної класичної освіти</div>
         </div>
     </div>
 </section>
@@ -196,7 +196,7 @@
             <div class="col-lg-10">
                 
                 {% if page.intro %}
-                <div class="intro-card" data-aos="fade-up">
+                <div class="intro-card">
                     <h2 class="section-title"><i class="bi bi-info-circle"></i> Вступна інформація</h2>
                     <div class="richtext-content">
                         {{ page.intro|richtext }}
@@ -204,28 +204,28 @@
                 </div>
                 {% endif %}
                 
-                <h2 class="section-title text-center mb-4" data-aos="fade-up">Порядок вступу</h2>
+                <h2 class="section-title text-center mb-4">Порядок вступу</h2>
                 
                 <div class="steps-grid">
-                    <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-card">
                         <div class="step-number">1</div>
                         <h3 class="step-title">Заповнення заяви</h3>
                         <p class="text-muted mb-0">Заповніть електронну заяву на нашому сайті, вказавши всі необхідні дані.</p>
                     </div>
                     
-                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-card">
                         <div class="step-number">2</div>
                         <h3 class="step-title">Співбесіда</h3>
                         <p class="text-muted mb-0">Пройдіть ознайомчу співбесіду в ліцеї у визначений час.</p>
                     </div>
                     
-                    <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-card">
                         <div class="step-number">3</div>
                         <h3 class="step-title">Документи</h3>
                         <p class="text-muted mb-0">Подайте оригінали документів після успішного проходження співбесіди.</p>
                     </div>
                     
-                    <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-card">
                         <div class="step-number">4</div>
                         <h3 class="step-title">Зарахування</h3>
                         <p class="text-muted mb-0">Офіційне зарахування до ліцею після обробки поданих документів.</p>
@@ -233,7 +233,7 @@
                 </div>
                 
                 {% if page.rules_text %}
-                <div class="rules-card" data-aos="fade-up">
+                <div class="rules-card">
                     <h2 class="section-title"><i class="bi bi-file-earmark-text"></i> Правила прийому</h2>
                     <div class="richtext-content">
                         {{ page.rules_text|richtext }}
@@ -241,7 +241,7 @@
                 </div>
                 {% endif %}
                 
-                <div class="admissions-cta-card" data-aos="fade-up">
+                <div class="admissions-cta-card">
                     <h2>Готові подати заяву?</h2>
                     <p class="cta-desc">Заповніть електронну форму вступу за кілька хвилин у Google Forms.</p>
                     <a href="?form=1" class="btn btn-admissions-cta">
