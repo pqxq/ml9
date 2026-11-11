@@ -24,6 +24,6 @@ $PYTHON manage.py migrate --noinput || echo "Migrations failed (DB may not be re
 
 # Collect static files
 echo "Collecting static files..."
-$PYTHON manage.py collectstatic --noinput --clear || echo "Static files collection failed"
+$PYTHON manage.py collectstatic --noinput --clear
 
 echo "Deployment complete!"

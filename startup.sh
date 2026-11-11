@@ -10,7 +10,7 @@ python manage.py migrate --noinput
 
 # Collect static files (in case build-time collect failed)
 echo "Collecting static files..."
-python manage.py collectstatic --noinput 2>/dev/null || true
+python manage.py collectstatic --noinput
 
 # Create cache table if it doesn't exist
 echo "Creating cache table..."
