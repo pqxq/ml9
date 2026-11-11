@@ -19,7 +19,7 @@ from admissions.models import ApplicationFormPage
 
 
 class Command(BaseCommand):
-    help = "Create the full site page tree structure for MCL Lyceum"
+    help = "Create the full site page tree structure for ML9 Lyceum"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

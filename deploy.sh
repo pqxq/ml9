@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== MCL Site Deployment Script ==="
+echo "=== ML9 Site Deployment Script ==="
 
 # Get Python path
 PYTHON=$(which python3 || which python)

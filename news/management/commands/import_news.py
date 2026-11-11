@@ -10,10 +10,10 @@ from wagtail.models import Page
 import time
 
 class Command(BaseCommand):
-    help = 'Scrapes news from mcl.mk.ua and imports into Wagtail'
+    help = 'Scrapes news from ml9.mk.ua and imports into Wagtail'
 
     def handle(self, *args, **options):
-        base_url = "https://mcl.mk.ua/"
+        base_url = "https://ml9.mk.ua/"
         self.stdout.write(f"Scraping {base_url}...")
 
         try:

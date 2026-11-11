@@ -1,6 +1,6 @@
 services:
   web:
-    image: mcl-site:latest
+    image: ml9-site:latest
     build:
       context: .
       dockerfile: Dockerfile.dev

@@ -1,7 +1,7 @@
 # ==============================================
 # Azure DevOps / GitHub Actions CI/CD Pipeline
 # ==============================================
-# MCL Site - Django/Wagtail Deployment to Azure App Service
+# ML9 Site - Django/Wagtail Deployment to Azure App Service
 # ==============================================
 
 name: Deploy to Azure App Service
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: mcl-mk
+  AZURE_WEBAPP_NAME: ml9-mk
   PYTHON_VERSION: '3.11'
 
 jobs:
@@ -76,11 +76,11 @@ jobs:
     
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/mcl-site:${{ github.sha }} .
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/mcl-site:${{ github.sha }}
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ml9-site:${{ github.sha }} .
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/ml9-site:${{ github.sha }}
     
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        images: ${{ secrets.ACR_LOGIN_SERVER }}/mcl-site:${{ github.sha }}
+        images: ${{ secrets.ACR_LOGIN_SERVER }}/ml9-site:${{ github.sha }}

@@ -2,7 +2,12 @@
 # Railway startup script for Django/Wagtail
 set -e
 
-echo "=== MCL Site Railway Startup ==="
+echo "=== ML9 Site Railway Startup ==="
+
+# Railway may retain an older project setting in its service environment.
+# Production containers must always use the current package namespace.
+export DJANGO_SETTINGS_MODULE=ml9.settings.production
+echo "Using Django settings: ${DJANGO_SETTINGS_MODULE}"
 
 # Run database migrations
 echo "Running database migrations..."

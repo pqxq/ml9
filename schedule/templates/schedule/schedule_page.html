@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedClassId === '') {
             classCols.forEach(col => col.classList.remove('hidden'));
             lessonCells.forEach(cell => cell.classList.remove('hidden'));
-            try { localStorage.removeItem('mcl_schedule_selected_class'); } catch(e) {}
+            try { localStorage.removeItem('ml9_schedule_selected_class'); } catch(e) {}
         } else {
             classCols.forEach(col => {
                 if (col.getAttribute('data-class-id') === selectedClassId) {
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     cell.classList.add('hidden');
                 }
             });
-            try { localStorage.setItem('mcl_schedule_selected_class', selectedClassId); } catch(e) {}
+            try { localStorage.setItem('ml9_schedule_selected_class', selectedClassId); } catch(e) {}
         }
     }
 
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Restore saved class from localStorage
         try {
-            const savedClassId = localStorage.getItem('mcl_schedule_selected_class');
+            const savedClassId = localStorage.getItem('ml9_schedule_selected_class');
             if (savedClassId) {
                 const targetItem = Array.from(dropdownItems).find(i => i.getAttribute('data-class-id') === savedClassId);
                 if (targetItem) {
