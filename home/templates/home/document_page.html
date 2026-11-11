@@ -18,22 +18,22 @@
 </section>
 
 
-<section class="document-content-section">
+<section class="document-content-section document-page">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-12 col-xl-10">
                 {% if page.documents.all %}
                 <div class="doc-list">
                     {% for doc in page.documents.all %}
                     <div class="doc-list-item">
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="document-list-content d-flex align-items-center gap-3">
                             <div class="document-icon-wrapper flex-shrink-0">
                                 <i class="bi bi-file-earmark-pdf"></i>
                             </div>
                             <div>
-                                <h2 class="h5 mb-1 text-primary fw-bold">{{ doc.title }}</h2>
+                                <h2 class="document-list-title">{{ doc.title }}</h2>
                                 {% if doc.description %}
-                                <p class="mb-0 text-muted small">{{ doc.description }}</p>
+                                <p class="document-list-description">{{ doc.description }}</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -58,4 +58,3 @@
     </div>
 </section>
 {% endblock %}
-

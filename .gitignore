@@ -47,6 +47,7 @@ datadump.json
 .env
 .env.local
 .env.*.local
+.env.railway
 
 # OS
 Thumbs.db
@@ -55,5 +56,6 @@ Thumbs.db
 # Backup files
 *.bak
 *.tmp
+.local-backups/
 
 .agent/

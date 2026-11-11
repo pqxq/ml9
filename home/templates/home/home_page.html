@@ -4,55 +4,55 @@
 {% block body_class %}template-home{% endblock %}
 
 {% block content %}
-<section class="page-hero home-hero">
-    <div class="hero-bg-pattern"></div>
-    <div class="container h-100">
-        <div class="home-hero-grid row justify-content-center align-items-center h-100">
-            <div class="col-12 col-lg-11 col-xl-10 mx-auto">
-                <!-- Single Unified Hero Card (Same background for both text and emblem) -->
-                <div class="hero-content home-hero-card">
-                    <div class="row align-items-center justify-content-center g-4 g-lg-5 gx-xl-5">
-                        
-                        <!-- Mobile-only Emblem Logo (Centered at top of card on Mobile < 992px) -->
-                        <div class="col-12 d-lg-none text-center">
-                            <div class="hero-mobile-emblem">
-                                <img src="{% static 'images/emblem.png' %}" alt="Герб ліцею" class="hero-emblem-mobile" width="220" height="220" loading="lazy" decoding="async">
-                            </div>
-                        </div>
+<section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="container">
+        <div class="home-hero-grid row align-items-center gy-4 gy-lg-0">
+            <!-- Left Column: Primary Identity & Direct Actions -->
+            <div class="col-12 col-lg-7">
+                <div class="hero-content">
+                    <div class="hero-kicker">Миколаївський ліцей №9 • Офіційний портал</div>
+                    <h1 class="hero-title" id="home-hero-title">
+                        Класична освіта, академічні цінності та сучасні знання
+                    </h1>
+                    <p class="hero-subtitle">
+                        Заклад повної загальної середньої освіти для учнів 10–11 класів. Поєднуємо фундаментальну підготовку з інноваційними навчальними практиками та науковою діяльністю.
+                    </p>
+                    <div class="hero-buttons d-flex flex-wrap gap-3 align-items-center">
+                        <a href="/publichna-informatsiia/vstup-do-litseiu/" class="btn btn-primary-custom">
+                            Вступ до ліцею
+                            <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                        </a>
+                        <a href="/schedule/" class="btn btn-outline-light">
+                            <i class="bi bi-calendar-week me-2" aria-hidden="true"></i>Розклад занять
+                        </a>
+                    </div>
 
-                        <!-- Hero Text Column (Centered on Desktop & Mobile) -->
-                        <div class="col-12 col-lg-7 text-center">
-                            <span class="hero-badge">
-                                Миколаївський ліцей №9
-                            </span>
-                            <h1 class="hero-title">
-                                Ми відкриваємо для Вас
-                                <span class="highlight">світ знань!</span>
-                            </h1>
-                            <p class="hero-subtitle">
-                                Від успіхів у ліцеї – до успіхів у житті! Поєднуємо традиції класичної освіти з інноваціями та сучасними
-                                підходами до навчання.
-                            </p>
-                            <div class="hero-buttons d-flex flex-column flex-md-row flex-wrap gap-3 mt-3 justify-content-center">
-                                <a href="/publichna-informatsiia/vstup-do-litseiu/" class="btn btn-primary-custom btn-lg d-inline-flex align-items-center justify-content-center">
-                                    <i class="bi bi-arrow-right-circle me-2"></i>Вступити до ліцею
-                                </a>
-                                <a href="/schedule/" class="btn btn-outline-light btn-lg d-inline-flex align-items-center justify-content-center">
-                                    <i class="bi bi-calendar-week me-2"></i>Розклад занять
-                                </a>
-                                <a href="/pro-litsei/" class="btn btn-outline-light btn-lg d-inline-flex align-items-center justify-content-center btn-full">
-                                    <i class="bi bi-info-circle me-2"></i>Дізнатися більше
-                                </a>
-                            </div>
+                    <!-- Domain-Specific Institutional Metrics -->
+                    <div class="hero-metrics-strip">
+                        <div class="hero-metric-item">
+                            <span class="metric-value">10–11</span>
+                            <span class="metric-label">Класи навчання</span>
                         </div>
-
-                        <!-- Desktop Emblem Column (Right side INSIDE the SAME card >= 992px, with extra left padding) -->
-                        <div class="col-12 col-lg-5 d-none d-lg-flex justify-content-center align-items-center ps-lg-4 ps-xl-5">
-                            <div class="home-hero-visual d-flex align-items-center justify-content-center">
-                                <img src="{% static 'images/emblem.png' %}" alt="Герб ліцею" class="hero-emblem-desktop img-fluid" width="340" height="340" loading="lazy" decoding="async">
-                            </div>
+                        <div class="hero-metric-divider" aria-hidden="true"></div>
+                        <div class="hero-metric-item">
+                            <span class="metric-value">МНАУ & ЧНУ</span>
+                            <span class="metric-label">Партнерство з ВНЗ</span>
                         </div>
+                        <div class="hero-metric-divider" aria-hidden="true"></div>
+                        <div class="hero-metric-item">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Безоплатна середня освіта</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Right Column: Institutional Seal -->
+            <div class="col-12 col-lg-5 text-center text-lg-end">
+                <div class="hero-seal-panel">
+                    <img src="{% static 'images/emblem.png' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" decoding="async">
+                    <div class="hero-seal-meta">
+                        <span class="seal-caption">Миколаїв • Засновано у 1997 році</span>
                     </div>
                 </div>
             </div>
@@ -107,64 +107,51 @@
     </div>
 </section>
 
-<section class="features-section">
+<section class="features-section" aria-labelledby="features-section-title">
     <div class="container">
-        <div class="section-header text-center">
-            <span class="section-tag">
-                <i class="bi bi-stars me-1"></i>
-                Наші переваги
-            </span>
-            <h2 class="section-title">Чому обирають нас?</h2>
-            <p class="section-subtitle">Ми створюємо середовище, де кожен учень може розкрити свій потенціал</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <div class="feature-icon">
-                            <i class="bi bi-mortarboard-fill"></i>
-                        </div>
-                        <div class="feature-icon-bg"></div>
-                    </div>
-                    <h3 class="feature-title">Якісна освіта</h3>
-                    <p class="feature-text">Безкоштовна повна середня освіта найвищого рівня від кращих педагогів.</p>
+        <div class="features-layout row gy-4 gx-lg-5 align-items-start">
+            <div class="col-12 col-lg-4">
+                <div class="features-intro">
+                    <span class="section-kicker">Освітні стандарти</span>
+                    <h2 class="section-title" id="features-section-title">Академічні пріоритети ліцею</h2>
+                    <p class="section-subtitle">
+                        Формуємо цілісний освітній простір, спрямований на інтелектуальний розвиток, наукову творчість та успішну підготовку до вищої освіти.
+                    </p>
+                    <a href="/pro-litsei/" class="features-detail-link">
+                        Детальніше про заклад <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <div class="feature-icon">
-                            <i class="bi bi-laptop"></i>
+            <div class="col-12 col-lg-8">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-num">01</div>
+                        <div class="feature-body">
+                            <h3 class="feature-heading">Якісна освіта</h3>
+                            <p class="feature-desc">Повна загальна середня освіта найвищого рівня від кваліфікованих педагогів та методистів.</p>
                         </div>
-                        <div class="feature-icon-bg"></div>
                     </div>
-                    <h3 class="feature-title">Сучасні технології</h3>
-                    <p class="feature-text">Власна корпоративна платформа, інтерактивні методики та цифрові інструменти.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <div class="feature-icon">
-                            <i class="bi bi-people-fill"></i>
+                    <div class="feature-item">
+                        <div class="feature-num">02</div>
+                        <div class="feature-body">
+                            <h3 class="feature-heading">Цифрові інструменти</h3>
+                            <p class="feature-desc">Власна корпоративна освітня система, інтерактивні методики та електронні інструменти.</p>
                         </div>
-                        <div class="feature-icon-bg"></div>
                     </div>
-                    <h3 class="feature-title">Партнерство з ВНЗ</h3>
-                    <p class="feature-text">Співпраця з <a href="https://www.mnau.edu.ua/" target="_blank" rel="noopener noreferrer">МНАУ</a> та <a href="https://chmnu.edu.ua/" target="_blank" rel="noopener noreferrer">ЧНУ імені Петра Могили</a> відкриває нові можливості.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <div class="feature-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <div class="feature-item">
+                        <div class="feature-num">03</div>
+                        <div class="feature-body">
+                            <h3 class="feature-heading">Університетське партнерство</h3>
+                            <p class="feature-desc">Спільні наукові й освітні програми з <a href="https://www.mnau.edu.ua/" target="_blank" rel="noopener noreferrer">МНАУ</a> та <a href="https://chmnu.edu.ua/" target="_blank" rel="noopener noreferrer">ЧНУ імені Петра Могили</a>.</p>
                         </div>
-                        <div class="feature-icon-bg"></div>
                     </div>
-                    <h3 class="feature-title">Подорожі та досвід</h3>
-                    <p class="feature-text">Вивчення історії та культури через реальні подорожі Україною та Європою.</p>
+                    <div class="feature-item">
+                        <div class="feature-num">04</div>
+                        <div class="feature-body">
+                            <h3 class="feature-heading">Наукова діяльність</h3>
+                            <p class="feature-desc">Участь у Малій академії наук (МАН), предметних олімпіадах, експедиціях та всеукраїнських турнірах.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,16 +161,12 @@
 {% if ticker_images %}
 {% load cache %}
 <section class="gallery-marquee-section">
-    <div class="gallery-marquee-bg-decor"></div>
     {% cache 3600 home_gallery_ticker %}
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-tag">
-                <i class="bi bi-images me-1"></i>
-                Фотогалерея
-            </span>
+            <span class="section-kicker">Фотогалерея</span>
             <h2 class="section-title">Моменти з життя ліцею</h2>
-            <p class="section-subtitle">Найяскравіші події та досягнення наших учнів</p>
+            <p class="section-subtitle">Події, урочистості та досягнення учнівського колективу</p>
         </div>
     </div>
     
@@ -241,7 +224,7 @@
     {% endcache %}
     <div class="container">
         <div class="text-center gallery-cta-wrapper">
-            <a href="/gallery/" class="btn btn-outline-primary-custom rounded-pill px-4">
+            <a href="/gallery/" class="btn btn-outline-primary-custom px-4">
                 <i class="bi bi-images me-2"></i>Переглянути галерею
             </a>
         </div>
@@ -495,12 +478,9 @@
 <section class="news-section">
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-tag">
-                <i class="bi bi-newspaper me-1"></i>
-                Новини
-            </span>
+            <span class="section-kicker">Новини ліцею</span>
             <h2 class="section-title">Останні події</h2>
-            <p class="section-subtitle">Слідкуйте за життям нашого ліцею</p>
+            <p class="section-subtitle">Офіційні повідомлення, наукові події та шкільне життя</p>
         </div>
 
         <div class="row g-4">
@@ -516,8 +496,7 @@
                             <i class="bi bi-newspaper"></i>
                         </div>
                         {% endif %}
-                        <div class="news-card-overlay"></div>
-                        <span class="news-card-badge">
+                        <span class="news-card-date">
                             <i class="bi bi-calendar3 me-1"></i>{{ post.date|date:"d E Y" }}
                         </span>
                     </div>
@@ -554,9 +533,9 @@
         </div>
 
         {% if latest_news %}
-        <div class="text-center mt-5">
-            <a href="/novyny/" class="btn btn-primary-custom btn-lg px-5">
-                Всі новини
+        <div class="text-center mt-4">
+            <a href="/novyny/" class="btn btn-outline-primary-custom px-4">
+                Всі новини ліцею
                 <i class="bi bi-arrow-right ms-2"></i>
             </a>
         </div>
@@ -568,10 +547,7 @@
 <section class="quick-links-section">
     <div class="container">
         <div class="section-header text-center">
-            <span class="section-tag">
-                <i class="bi bi-link-45deg me-1"></i>
-                Швидкий доступ
-            </span>
+            <span class="section-kicker">Швидкий доступ</span>
             <h2 class="section-title">Корисні посилання</h2>
         </div>
         <div class="row g-4 justify-content-center">

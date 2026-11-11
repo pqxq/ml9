@@ -7,7 +7,7 @@
 <style>
     .admissions-content { padding: clamp(3rem, 5vw, 5rem) 0; background-color: var(--gray-50); }
     
-    .intro-card { background: white; border-radius: 20px; padding: clamp(2rem, 4vw, 3.5rem); box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin-bottom: 3rem; }
+    .intro-card { background: white; border-radius: 16px; padding: clamp(2rem, 4vw, 3.5rem); border: 1px solid var(--border-hairline); margin-bottom: 3rem; }
     
     .steps-grid {
         display: grid;
@@ -30,19 +30,18 @@
     
     .step-card {
         background: white;
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 1.5rem;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        border: 1px solid var(--border-hairline);
         border-top: 4px solid var(--accent);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: border-color 0.2s ease;
         display: flex;
         flex-direction: column;
         height: 100%;
     }
     
     .step-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        border-color: var(--primary-light);
     }
     
     .step-number {
@@ -68,9 +67,9 @@
     
     .rules-card {
         background: white;
-        border-radius: 20px;
+        border-radius: 16px;
         padding: clamp(2rem, 4vw, 3.5rem);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+        border: 1px solid var(--border-hairline);
         margin-bottom: 3rem;
         border-left: 6px solid var(--primary);
     }
@@ -78,11 +77,11 @@
     /* ── Premium Admissions CTA Card ── */
     .admissions-cta-card {
         background: linear-gradient(135deg, var(--primary) 0%, #0d223f 100%);
-        border-radius: 24px;
+        border-radius: 16px;
         padding: clamp(2.5rem, 5vw, 4rem) 2rem;
         text-align: center;
         color: white;
-        box-shadow: 0 15px 40px rgba(13, 34, 63, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         position: relative;
         overflow: hidden;
         margin-top: 1rem;
@@ -103,15 +102,14 @@
     }
     
     .btn-admissions-cta {
-        background-color: #d4af37;
-        color: var(--primary, #1e3a5f);
+        background-color: var(--accent);
+        color: var(--primary);
         border: none;
         padding: 1rem 3rem;
         font-size: 1.15rem;
         font-weight: 700;
-        border-radius: 50px;
-        box-shadow: 0 8px 25px rgba(220, 168, 43, 0.35);
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        border-radius: 10px;
+        transition: background-color 0.2s ease;
         display: inline-flex;
         align-items: center;
         gap: 0.6rem;
@@ -119,10 +117,8 @@
     }
     
     .btn-admissions-cta:hover {
-        transform: translateY(-3px);
         background-color: #e8c65f;
-        color: var(--primary, #1e3a5f);
-        box-shadow: 0 12px 30px rgba(220, 168, 43, 0.5);
+        color: var(--primary);
     }
     
     .btn-admissions-cta::after, .btn-admissions-cta::before {
@@ -149,8 +145,7 @@
         position: absolute;
         inset: 0;
         opacity: 0.1;
-        background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
-        background-size: 32px 32px;
+        background-image: none;
     }
     
     .hero-title {
@@ -193,7 +188,7 @@
 <section class="admissions-content">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-12 col-xl-11">
                 
                 {% if page.intro %}
                 <div class="intro-card">
@@ -243,9 +238,11 @@
                 
                 <div class="admissions-cta-card">
                     <h2>Готові подати заяву?</h2>
-                    <p class="cta-desc">Заповніть електронну форму вступу за кілька хвилин у Google Forms.</p>
+                    <p class="cta-desc">Заповніть електронну заяву за кілька хвилин. Ми зв’яжемося з вами після її отримання.</p>
                     <a href="?form=1" class="btn btn-admissions-cta">
-                        <i class="bi bi-pencil-square"></i> Подати заяву online
+                        <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                        <span>Подати заяву онлайн</span>
+                        <i class="bi bi-arrow-right" aria-hidden="true"></i>
                     </a>
                     <p class="cta-disclaimer">Натискаючи кнопку, ви погоджуєтеся на обробку персональних даних.</p>
                 </div>

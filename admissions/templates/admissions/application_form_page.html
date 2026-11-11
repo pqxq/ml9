@@ -10,7 +10,7 @@
        ════════════════════════════════════════ */
 
     .gf-wrapper {
-        background: #f0f4f9;
+        background: var(--gray-50);
         min-height: 100vh;
         padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(3rem, 6vw, 5rem);
     }
@@ -23,9 +23,9 @@
     /* ── Header card ── */
     .gf-header {
         background: #fff;
-        border-radius: 12px;
+        border-radius: 16px;
         border: 1px solid #dadce0;
-        border-top: 10px solid var(--primary, #1e3a5f);
+        border-top: 6px solid var(--primary, #0e2238);
         padding: clamp(1.25rem, 3vw, 2rem);
         margin-bottom: 14px;
     }
@@ -33,7 +33,7 @@
     .gf-header h1 {
         font-size: clamp(1.5rem, 3.5vw, 2rem);
         font-weight: 700;
-        color: var(--primary, #1e3a5f);
+        color: var(--primary, #0e2238);
         margin: 0 0 8px;
     }
 
@@ -49,7 +49,7 @@
     .gf-form-card {
         background: #fff;
         border: 1px solid #dadce0;
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
         margin-bottom: 14px;
     }
@@ -88,7 +88,7 @@
         width: 24px;
         height: 24px;
         border: 3px solid #dadce0;
-        border-top-color: var(--primary, #1e3a5f);
+        border-top-color: var(--primary, #0e2238);
         border-radius: 50%;
         animation: gf-spin 0.8s linear infinite;
     }
@@ -106,7 +106,7 @@
     }
 
     .gf-footer a {
-        color: var(--primary, #1e3a5f);
+        color: var(--primary, #0e2238);
         text-decoration: none;
     }
 
@@ -122,7 +122,7 @@
     /* ── Responsive ── */
     @media (max-width: 640px) {
         .gf-wrapper { padding: 1rem 0.5rem 2rem; }
-        .gf-header, .gf-form-card { border-radius: 10px; }
+        .gf-header, .gf-form-card { border-radius: 12px; }
     }
 </style>
 {% endblock extra_css %}
