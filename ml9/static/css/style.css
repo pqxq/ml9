@@ -7196,12 +7196,14 @@ button[aria-busy="true"] {
         min-height: 44px;
         font-size: 0.85rem;
         touch-action: manipulation;
+        color: #FAFAFA !important;
+        justify-content: center;
     }
     .schedule-table th.day-col,
     .schedule-table td.day-cell {
-        width: 52px;
-        min-width: 52px;
-        max-width: 52px;
+        width: 64px;
+        min-width: 64px;
+        max-width: 64px;
         left: 0;
         padding: 0.4rem 0.2rem;
     }
@@ -7210,30 +7212,33 @@ button[aria-busy="true"] {
     }
     .day-name {
         display: block;
-        width: 1.15em;
-        max-width: 1.15em;
+        width: 1.4em;
+        max-width: 1.4em;
         margin: 0 auto;
         transform: none;
         writing-mode: horizontal-tb;
         white-space: normal;
         overflow-wrap: anywhere;
         word-break: break-all;
-        font-size: 0.9rem;
+        font-size: 1.05rem;
         letter-spacing: 0;
         line-height: 1.05;
         padding: 8px 2px;
         border-radius: 8px;
     }
     .header-text-vertical {
-        font-size: 0.66rem;
-        letter-spacing: 0.08em;
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        font-size: 0.82rem;
+        letter-spacing: 0;
+        line-height: 1.05;
     }
     .schedule-table th.para-col,
     .schedule-table td.para-cell {
         width: 32px;
         min-width: 32px;
         max-width: 32px;
-        left: 52px;
+        left: 64px;
         padding: 0.35rem 0.15rem;
     }
     .para-name {
@@ -7245,7 +7250,7 @@ button[aria-busy="true"] {
         width: 28px;
         min-width: 28px;
         max-width: 28px;
-        left: 84px;
+        left: 96px;
         padding: 0.35rem 0.15rem;
     }
     .num-val {
@@ -7256,7 +7261,7 @@ button[aria-busy="true"] {
         width: 86px;
         min-width: 86px;
         max-width: 86px;
-        left: 112px;
+        left: 124px;
         padding: 0.35rem 0.2rem;
     }
     .time-val {
@@ -8703,8 +8708,8 @@ button[aria-busy="true"] {
     height: auto;
     width: auto;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.75;
+    filter: none;
+    opacity: 1;
     transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
@@ -9432,32 +9437,54 @@ button[aria-busy="true"] {
 
     .template-home .home-stats-section .stats-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
+        gap: 1rem 1.15rem;
+        width: min(100%, 360px);
+        margin: 0 auto;
         justify-items: center;
     }
 
     .template-home .home-stats-section .stat-item {
+        width: auto;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 3 / 2;
+        padding: 1rem 1rem;
+        border-radius: 2px !important;
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .template-home .home-stats-section .stat-item a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        height: 132px;
-        min-height: 132px;
-        padding: 1rem 0.85rem;
-        border-radius: 12px !important;
-        justify-self: stretch;
+        height: 100%;
+        margin: 0;
     }
 
     .template-home .home-stats-section .stat-item:last-child {
         flex: none;
-        max-width: calc(50% - 0.425rem);
+        max-width: calc((100% - 1.15rem) / 2);
         grid-column: 1 / -1;
-        width: calc(50% - 0.425rem);
+        width: calc((100% - 1.15rem) / 2);
         justify-self: center;
     }
 
     .template-home .home-stats-section .stat-item img,
     .template-home .home-stats-section .stat-item svg {
-        height: auto;
-        max-width: 100%;
-        max-height: 90px;
+        height: 124px;
+        width: 124%;
+        max-width: 124%;
+        max-height: 124px;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+        filter: none;
+        opacity: 1;
+        transform: scale(1.08);
     }
 
     .features-section {
