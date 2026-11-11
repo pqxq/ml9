@@ -2594,6 +2594,36 @@ img {
     box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
 }
 
+.article-footer .btn-outline-primary-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary);
+    background: var(--white);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+        box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.article-footer .btn-outline-primary-custom:hover,
+.article-footer .btn-outline-primary-custom:focus-visible {
+    color: var(--white) !important;
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 6px 16px rgba(24, 78, 142, 0.25);
+    transform: translateY(-2px);
+}
+
+.article-footer .btn-outline-primary-custom:active {
+    color: var(--white) !important;
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: 0 2px 6px rgba(24, 78, 142, 0.2);
+    transform: translateY(0);
+}
+
 .copy-link-btn .copy-tooltip {
     position: absolute;
     bottom: 125%;
