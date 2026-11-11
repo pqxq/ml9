@@ -6835,10 +6835,15 @@ button[aria-busy="true"] {
 
 /* Header text with automatic vertical wrap when narrow */
 .header-text-vertical {
-    display: inline-block;
-    white-space: nowrap;
-    letter-spacing: 0.04em;
-    line-height: 1.2;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.05em;
+    white-space: normal;
+    letter-spacing: 0;
+    line-height: 1;
+    font-weight: 800;
 }
 
 /* Top-left corner headers (Sticky Top + Sticky Left) */
@@ -7194,20 +7199,30 @@ button[aria-busy="true"] {
     }
     .schedule-table th.day-col,
     .schedule-table td.day-cell {
-        width: 38px;
-        min-width: 38px;
-        max-width: 38px;
+        width: 52px;
+        min-width: 52px;
+        max-width: 52px;
         left: 0;
-        padding: 0.4rem 0.15rem;
+        padding: 0.4rem 0.2rem;
     }
     .day-badge-wrapper {
         padding: 6px 0;
     }
     .day-name {
-        font-size: 0.68rem;
-        letter-spacing: 0.03em;
-        padding: 8px 3px;
-        border-radius: 12px;
+        display: block;
+        width: 1.15em;
+        max-width: 1.15em;
+        margin: 0 auto;
+        transform: none;
+        writing-mode: horizontal-tb;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-all;
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        line-height: 1.05;
+        padding: 8px 2px;
+        border-radius: 8px;
     }
     .header-text-vertical {
         font-size: 0.66rem;
@@ -7218,7 +7233,7 @@ button[aria-busy="true"] {
         width: 32px;
         min-width: 32px;
         max-width: 32px;
-        left: 38px;
+        left: 52px;
         padding: 0.35rem 0.15rem;
     }
     .para-name {
@@ -7230,7 +7245,7 @@ button[aria-busy="true"] {
         width: 28px;
         min-width: 28px;
         max-width: 28px;
-        left: 70px;
+        left: 84px;
         padding: 0.35rem 0.15rem;
     }
     .num-val {
@@ -7241,7 +7256,7 @@ button[aria-busy="true"] {
         width: 86px;
         min-width: 86px;
         max-width: 86px;
-        left: 98px;
+        left: 112px;
         padding: 0.35rem 0.2rem;
     }
     .time-val {
@@ -9427,13 +9442,15 @@ button[aria-busy="true"] {
         min-height: 132px;
         padding: 1rem 0.85rem;
         border-radius: 12px !important;
+        justify-self: stretch;
     }
 
     .template-home .home-stats-section .stat-item:last-child {
         flex: none;
-        max-width: none;
+        max-width: calc(50% - 0.425rem);
         grid-column: 1 / -1;
         width: calc(50% - 0.425rem);
+        justify-self: center;
     }
 
     .template-home .home-stats-section .stat-item img,
