@@ -42,7 +42,8 @@ RUN mkdir -p /app/staticfiles /app/media /home/wagtail/.gunicorn && chown -R wag
 USER wagtail
 
 # Collect static files at build time.
-RUN python manage.py collectstatic --noinput --clear
+RUN SECRET_KEY=collectstatic-build-only-not-for-runtime \
+    python manage.py collectstatic --noinput --clear
 
 # Runtime command — use startup.sh for migrations + gunicorn
 CMD ["bash", "/app/startup.sh"]
