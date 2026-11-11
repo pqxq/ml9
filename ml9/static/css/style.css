@@ -6921,13 +6921,14 @@ button[aria-busy="true"] {
 }
 
 .day-name {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
+    display: inline-block;
+    writing-mode: horizontal-tb;
+    transform: rotate(-90deg);
     white-space: nowrap;
     font-size: 0.82rem;
     color: #0c2d54;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    text-transform: none;
+    letter-spacing: 0.03em;
     font-weight: 800;
     margin: 0 auto;
     padding: 12px 5px;
@@ -9222,5 +9223,262 @@ button[aria-busy="true"] {
 @media (max-width: 767.98px) {
     .template-home .home-hero .hero-buttons {
         align-items: flex-start !important;
+    }
+}
+
+/* ==================== MOBILE SITE REFINEMENT ==================== */
+@media (max-width: 767.98px) {
+    .top-header .container-fluid {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .header-title-mobile {
+        font-size: 0.95rem !important;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    .header-logo-mobile {
+        width: 32px;
+        height: 32px;
+    }
+
+    .home-hero {
+        padding: 0.9rem 0 2.25rem !important;
+    }
+
+    .home-hero-grid {
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .home-hero-grid > .col-lg-5 {
+        order: -1;
+    }
+
+    .home-hero-grid > .col-lg-7 {
+        order: 1;
+    }
+
+    .home-hero-grid > .col-lg-5,
+    .home-hero-grid > .col-lg-7 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        width: 100%;
+    }
+
+    .home-hero .hero-seal-panel {
+        width: min(100%, 300px);
+        margin: 0.2rem auto 0;
+        padding: 1.2rem 1rem 0.9rem;
+        border-radius: 12px !important;
+        overflow: visible;
+    }
+
+    .home-hero .hero-seal-panel .hero-emblem-img {
+        width: 142px;
+        max-height: 160px;
+        object-fit: contain;
+    }
+
+    .home-hero .hero-seal-meta {
+        margin-top: 0.7rem;
+    }
+
+    .home-hero .hero-seal-meta .seal-caption {
+        font-size: 0.68rem;
+    }
+
+    .home-hero .hero-content {
+        text-align: center;
+        padding-top: 0 !important;
+    }
+
+    .home-hero .hero-kicker {
+        font-size: 0.7rem;
+        line-height: 1.45;
+        margin-bottom: 0.65rem;
+    }
+
+    .home-hero .hero-title {
+        font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
+        line-height: 1.18 !important;
+    }
+
+    .home-hero .hero-subtitle {
+        font-size: 1rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    .home-hero .hero-buttons,
+    .home-hero .hero-buttons .btn {
+        width: 100% !important;
+    }
+
+    .home-hero .hero-buttons {
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        align-items: center !important;
+    }
+
+    .home-hero .hero-buttons .btn {
+        flex: 0 0 auto !important;
+        min-height: 46px;
+    }
+
+    .hero-metrics-strip {
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 1.25rem;
+        padding-top: 1.15rem;
+    }
+
+    .home-hero-grid > .col-lg-5 {
+        padding-bottom: 0;
+    }
+
+    .home-hero-grid > .col-lg-7 {
+        padding-top: 0;
+    }
+
+    .hero-metric-item .metric-value {
+        font-size: 1.15rem;
+    }
+
+    .hero-metric-item .metric-label {
+        font-size: 0.66rem;
+    }
+
+    .hero-metric-divider {
+        height: 28px;
+    }
+
+    .filter-card,
+    .schedule-controls,
+    .schedule-notice {
+        padding: 1rem !important;
+    }
+
+    .filter-wrapper {
+        gap: 0.65rem;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+    .news-card,
+    .quick-link-card,
+    .staff-card,
+    .document-card,
+    .result-card {
+        border-radius: 12px !important;
+    }
+
+    .schedule-table-wrapper {
+        border-radius: 10px !important;
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+    }
+
+    .document-page .doc-list-item {
+        padding: 1rem;
+    }
+
+    .admissions-content {
+        padding: 2.5rem 0 !important;
+    }
+
+    .steps-grid {
+        gap: 0.85rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .step-card {
+        padding: 1.25rem;
+    }
+
+    .admissions-cta-card {
+        padding: 2rem 1.25rem !important;
+    }
+
+    .site-footer .footer-main {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .home-stats-section {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .template-home .home-stats-section .stats-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+        justify-items: center;
+    }
+
+    .template-home .home-stats-section .stat-item {
+        width: 100%;
+        height: 132px;
+        min-height: 132px;
+        padding: 1rem 0.85rem;
+        border-radius: 12px !important;
+    }
+
+    .template-home .home-stats-section .stat-item:last-child {
+        flex: none;
+        max-width: none;
+        grid-column: 1 / -1;
+        width: calc(50% - 0.425rem);
+    }
+
+    .template-home .home-stats-section .stat-item img,
+    .template-home .home-stats-section .stat-item svg {
+        height: auto;
+        max-width: 100%;
+        max-height: 90px;
+    }
+
+    .features-section {
+        padding: 2.75rem 0 !important;
+    }
+
+    .features-intro {
+        padding: 0;
+        text-align: center;
+    }
+
+    .features-intro .section-kicker {
+        margin-bottom: 0.65rem;
+    }
+
+    .features-intro .section-title {
+        max-width: 19rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features-intro .section-subtitle {
+        max-width: 28rem;
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    .features-detail-link {
+        margin-top: 0.25rem;
+    }
+
+    .features-grid {
+        margin-top: 0.25rem;
+        border-radius: 12px !important;
+    }
+
+    .feature-item {
+        padding: 1.25rem;
+        text-align: left;
     }
 }
