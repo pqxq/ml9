@@ -4439,8 +4439,9 @@ u,
 
 .week-tab,
 .btn-week {
-    min-height: var(--btn-height);
-    font-size: 0.9rem;
+    min-height: 48px;
+    font-size: 1.05rem;
+    font-weight: 700;
 }
 
 .class-filter-btn {
@@ -4695,7 +4696,7 @@ u,
 
 /* Sticky Schedule Table */
 .schedule-table-wrapper {
-    --col-day-w: 64px;
+    --col-day-w: 76px;
     --col-para-w: 54px;
     --col-num-w: 38px;
     --col-time-w: 114px;
@@ -4834,12 +4835,12 @@ u,
     display: inline-block;
     transform: rotate(-90deg);
     white-space: nowrap;
-    font-size: 0.82rem;
+    font-size: 1.1rem;
     color: var(--primary-dark);
     letter-spacing: 0.03em;
     font-weight: 800;
     margin: 0 auto;
-    padding: 10px 5px;
+    padding: 14px 9px;
     line-height: 1;
     background: #dbeafe;
     border: 1.5px solid #93c5fd;
