@@ -49,7 +49,7 @@ def seo_head(context):
             ]
         )
     else:
-        emblem_url = request.build_absolute_uri("/static/images/emblem.png")
+        emblem_url = request.build_absolute_uri("/static/images/emblem.webp")
         tags.extend(
             [
                 format_html('<meta property="og:image" content="{}">', emblem_url),

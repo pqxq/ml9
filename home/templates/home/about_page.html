@@ -7,20 +7,32 @@
 <style>
     /* ==================== ABOUT PAGE STYLES (STRICT DESIGN SYSTEM) ==================== */
 
+/* Force centered column layout inside global .page-hero */
+    .page-hero .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
     /* Hero Emblem */
     .about-hero-emblem-wrapper {
         position: relative;
-        display: inline-block;
-        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto 1.5rem;
     }
-    
+
     .about-hero-emblem {
         height: clamp(90px, 12vw, 130px);
         width: auto;
         display: block;
         margin: 0 auto;
     }
-    
+
     /* Quick Jump Navigation */
     .about-quick-nav-wrapper {
         margin-top: 2rem;
@@ -30,19 +42,41 @@
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
-    @media (max-width: 767.98px) {
+
+    @media (max-width: 575.98px) {
         .about-quick-nav-wrapper {
             flex-wrap: nowrap;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             justify-content: flex-start;
             padding-bottom: 0.5rem;
-            margin-left: -0.75rem;
-            margin-right: -0.75rem;
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
             scrollbar-width: none;
+            overscroll-behavior-x: contain;
+        }
+        .about-quick-nav-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .about-quick-nav-item {
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+    }
+    @media (max-width: 991.98px) {
+        .about-quick-nav-wrapper {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            justify-content: flex-start;
+            padding-bottom: 0.5rem;
+            padding-left: 0;
+            padding-right: 0;
+            scrollbar-width: none;
+            overscroll-behavior-x: contain;
         }
         .about-quick-nav-wrapper::-webkit-scrollbar {
             display: none;
@@ -627,17 +661,8 @@
         <div class="hero-content text-center">
             <!-- Emblem -->
             <div class="about-hero-emblem-wrapper">
-                <img src="{% static 'images/emblem.png' %}" alt="Герб закладу" class="about-hero-emblem" width="220" height="220" loading="eager" decoding="async">
+                <img src="{% static 'images/emblem.webp' %}" alt="Герб закладу" class="about-hero-emblem" width="220" height="220" loading="eager" decoding="async">
             </div>
-            
-            {% if page.hero_badge %}
-            <div class="mb-2">
-                <span class="hero-badge">
-                    <i class="bi bi-patch-check-fill me-1 icon-accent"></i>
-                    {{ page.hero_badge }}
-                </span>
-            </div>
-            {% endif %}
             
             <h1 class="hero-title hero-title-balanced">{{ page.title }}</h1>
             

@@ -5,182 +5,119 @@
 
 {% block extra_css %}
 <style>
-    .admissions-content { padding: clamp(3rem, 5vw, 5rem) 0; background-color: var(--gray-50); }
-    
-    .intro-card { background: white; border-radius: 16px; padding: clamp(2rem, 4vw, 3.5rem); border: 1px solid var(--border-hairline); margin-bottom: 3rem; }
-    
+    .admissions-content {
+        padding: clamp(2.75rem, 5vw, 4.5rem) 0 clamp(3.5rem, 6vw, 5.5rem);
+        background-color: var(--gray-50);
+    }
+
+    .intro-card {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: clamp(1.75rem, 3.5vw, 2.75rem);
+        border: 1px solid var(--border-hairline);
+        margin-bottom: 3rem;
+    }
+
+    .admissions-section-heading {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+    }
+
+    .admissions-section-heading i {
+        color: var(--accent-text);
+        font-size: 1.2em;
+        flex-shrink: 0;
+    }
+
+    .admissions-section-heading--center {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
     .steps-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 1.25rem;
         margin-bottom: 3rem;
     }
-    
-    @media (max-width: 991px) {
+
+    @media (max-width: 991.98px) {
         .steps-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
-    
-    @media (max-width: 575px) {
+
+    @media (max-width: 575.98px) {
         .steps-grid {
             grid-template-columns: 1fr;
         }
     }
-    
+
     .step-card {
-        background: white;
-        border-radius: 12px;
+        background: var(--white);
+        border-radius: var(--radius-lg);
         padding: 1.5rem;
         border: 1px solid var(--border-hairline);
         border-top: 4px solid var(--accent);
-        transition: border-color 0.2s ease;
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
         display: flex;
         flex-direction: column;
         height: 100%;
     }
-    
-    .step-card:hover {
-        border-color: var(--primary-light);
+
+    @media (hover: hover) {
+        .step-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--btn-shadow-sm);
+        }
     }
-    
+
     .step-number {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
         background: var(--primary);
-        color: white;
-        border-radius: 50%;
+        color: var(--accent-light);
+        border-radius: var(--radius-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-    }
-    
-    .step-title {
+        font-family: var(--font-heading);
         font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--primary);
-        margin-bottom: 1rem;
-    }
-    
-    .rules-card {
-        background: white;
-        border-radius: 16px;
-        padding: clamp(2rem, 4vw, 3.5rem);
-        border: 1px solid var(--border-hairline);
-        margin-bottom: 3rem;
-        border-left: 6px solid var(--primary);
-    }
-
-    /* ── Premium Admissions CTA Card ── */
-    .admissions-cta-card {
-        background: linear-gradient(135deg, var(--primary) 0%, #0d223f 100%);
-        border-radius: 16px;
-        padding: clamp(2.5rem, 5vw, 4rem) 2rem;
-        text-align: center;
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        position: relative;
-        overflow: hidden;
-        margin-top: 1rem;
-    }
-
-    .admissions-cta-card h2 {
-        color: white;
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
         font-weight: 800;
-        margin-bottom: 0.75rem;
+        margin-bottom: 1.25rem;
+        flex-shrink: 0;
     }
 
-    .admissions-cta-card p.cta-desc {
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 1.05rem;
-        max-width: 550px;
-        margin: 0 auto 2rem;
-    }
-    
-    .btn-admissions-cta {
-        background-color: var(--accent);
-        color: var(--primary);
-        border: none;
-        padding: 1rem 3rem;
+    .step-title {
         font-size: 1.15rem;
         font-weight: 700;
-        border-radius: 10px;
-        transition: background-color 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        text-decoration: none !important;
-    }
-    
-    .btn-admissions-cta:hover {
-        background-color: #e8c65f;
         color: var(--primary);
+        margin-bottom: 0.65rem;
     }
-    
-    .btn-admissions-cta::after, .btn-admissions-cta::before {
-        display: none !important;
-        content: none !important;
-    }
-    
-    .cta-disclaimer {
-        color: rgba(255, 255, 255, 0.65) !important;
-        font-size: 0.85rem;
-        margin-top: 1.25rem;
-        margin-bottom: 0;
-    }
-    
-    .page-hero {
-        padding: 6rem 0 4rem;
-        background-color: var(--primary);
-        color: white;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .hero-bg-pattern {
-        position: absolute;
-        inset: 0;
-        opacity: 0.1;
-        background-image: none;
-    }
-    
-    .hero-title {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 800;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .hero-subtitle {
-        font-size: clamp(1.2rem, 2vw, 1.5rem);
-        opacity: 0.9;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .section-title {
-        color: var(--primary);
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
+
+    .admissions-rules-card {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: clamp(1.75rem, 3.5vw, 2.75rem);
+        border: 1px solid var(--border-hairline);
+        border-left: 5px solid var(--primary);
+        margin-bottom: 3rem;
     }
 </style>
 {% endblock %}
 
 {% block content %}
 <section class="page-hero">
-    <div class="hero-bg-pattern"></div>
     <div class="container">
         <div class="hero-content text-center">
             <h1 class="hero-title">{{ page.title }}</h1>
-            <div class="hero-subtitle">Зробіть перший крок до якісної класичної освіти</div>
+            <p class="hero-subtitle">Зробіть перший крок до якісної класичної освіти</p>
         </div>
     </div>
 </section>
@@ -189,57 +126,65 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-xl-11">
-                
+
                 {% if page.intro %}
                 <div class="intro-card">
-                    <h2 class="section-title"><i class="bi bi-info-circle"></i> Вступна інформація</h2>
+                    <h2 class="admissions-section-heading">
+                        <i class="bi bi-info-circle" aria-hidden="true"></i>
+                        <span>Вступна інформація</span>
+                    </h2>
                     <div class="richtext-content">
                         {{ page.intro|richtext }}
                     </div>
                 </div>
                 {% endif %}
-                
-                <h2 class="section-title text-center mb-4">Порядок вступу</h2>
-                
+
+                <h2 class="admissions-section-heading admissions-section-heading--center">
+                    <span>Порядок вступу</span>
+                </h2>
+
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">1</div>
                         <h3 class="step-title">Заповнення заяви</h3>
                         <p class="text-muted mb-0">Заповніть електронну заяву на нашому сайті, вказавши всі необхідні дані.</p>
                     </div>
-                    
+
                     <div class="step-card">
                         <div class="step-number">2</div>
                         <h3 class="step-title">Співбесіда</h3>
                         <p class="text-muted mb-0">Пройдіть ознайомчу співбесіду в ліцеї у визначений час.</p>
                     </div>
-                    
+
                     <div class="step-card">
                         <div class="step-number">3</div>
                         <h3 class="step-title">Документи</h3>
                         <p class="text-muted mb-0">Подайте оригінали документів після успішного проходження співбесіди.</p>
                     </div>
-                    
+
                     <div class="step-card">
                         <div class="step-number">4</div>
                         <h3 class="step-title">Зарахування</h3>
                         <p class="text-muted mb-0">Офіційне зарахування до ліцею після обробки поданих документів.</p>
                     </div>
                 </div>
-                
+
                 {% if page.rules_text %}
-                <div class="rules-card">
-                    <h2 class="section-title"><i class="bi bi-file-earmark-text"></i> Правила прийому</h2>
+                <div class="admissions-rules-card">
+                    <h2 class="admissions-section-heading">
+                        <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                        <span>Правила прийому</span>
+                    </h2>
                     <div class="richtext-content">
                         {{ page.rules_text|richtext }}
                     </div>
                 </div>
                 {% endif %}
-                
+
                 <div class="admissions-cta-card">
                     <h2>Готові подати заяву?</h2>
                     <p class="cta-desc">Заповніть електронну заяву за кілька хвилин. Ми зв’яжемося з вами після її отримання.</p>
-                    <a href="?form=1" class="btn btn-admissions-cta">
+                    <a href="?form=1" class="btn btn-primary-custom btn-admissions-cta">
                         <i class="bi bi-pencil-square" aria-hidden="true"></i>
                         <span>Подати заяву онлайн</span>
                         <i class="bi bi-arrow-right" aria-hidden="true"></i>

@@ -4,13 +4,12 @@
 {% block body_class %}template-home{% endblock %}
 
 {% block content %}
-<section class="home-hero" aria-labelledby="home-hero-title">
+<section class="home-hero" aria-labelledby="home-hero-title" style="--hero-bg: url('{% static 'images/licey.webp' %}');">
     <div class="container">
         <div class="home-hero-grid row align-items-center gy-4 gy-lg-0">
             <!-- Left Column: Primary Identity & Direct Actions -->
             <div class="col-12 col-lg-7">
                 <div class="hero-content">
-                    <div class="hero-kicker">Миколаївський ліцей №9 • Офіційний портал</div>
                     <h1 class="hero-title" id="home-hero-title">
                         Класична освіта, академічні цінності та сучасні знання
                     </h1>
@@ -50,9 +49,9 @@
             <!-- Right Column: Institutional Seal -->
             <div class="col-12 col-lg-5 text-center text-lg-end">
                 <div class="hero-seal-panel">
-                    <img src="{% static 'images/emblem.png' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" decoding="async">
+                    <img src="{% static 'images/emblem.webp' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" decoding="async">
                     <div class="hero-seal-meta">
-                        <span class="seal-caption">Миколаїв • Засновано у 1997 році</span>
+                        <span class="seal-caption">Засновано у 1997 році</span>
                     </div>
                 </div>
             </div>
@@ -80,7 +79,7 @@
         <div class="stats-row">
             <div class="stat-item">
                 <a href="https://mon.gov.ua/" target="_blank" rel="noopener noreferrer" title="Міністерство освіти і науки України" aria-label="Міністерство освіти і науки України">
-                    <img src="{% static 'images/mon.png' %}" alt="Міністерство освіти і науки України" loading="lazy" decoding="async">
+                    <img src="{% static 'images/mon.webp' %}" alt="Міністерство освіти і науки України" loading="lazy" decoding="async">
                 </a>
             </div>
             <div class="stat-item">
