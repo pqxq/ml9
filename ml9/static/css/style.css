@@ -4450,6 +4450,249 @@ u,
     font-size: 0.9rem;
 }
 
+/* Mobile Day Selector & Lesson Agenda (Hidden on Desktop >= 768px) */
+.schedule-day-selector,
+.schedule-mobile-agenda {
+    display: none;
+}
+
+.mobile-day-section.is-hidden,
+.mobile-lesson-card.hidden {
+    display: none !important;
+}
+
+@media (max-width: 767.98px) {
+    .schedule-table-wrapper,
+    .schedule-scroll-hint {
+        display: none !important;
+    }
+
+    .schedule-day-selector {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.4rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .schedule-day-pill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.15rem;
+        min-height: 52px;
+        padding: 0.45rem 0.25rem;
+        background: var(--white);
+        border: 1.5px solid var(--border-hairline);
+        border-radius: var(--btn-radius);
+        color: var(--gray-700);
+        cursor: pointer;
+        user-select: none;
+        touch-action: manipulation;
+        transition:
+            background-color var(--transition-fast),
+            border-color var(--transition-fast),
+            color var(--transition-fast),
+            box-shadow var(--transition-fast);
+    }
+
+    .schedule-day-pill:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+
+    .schedule-day-pill.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+        box-shadow: var(--btn-shadow-sm);
+    }
+
+    .schedule-day-short {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .schedule-day-pill.active .schedule-day-short {
+        color: var(--accent-light);
+    }
+
+    .schedule-day-pill-full {
+        font-size: 0.66rem;
+        font-weight: 600;
+        line-height: 1.1;
+        opacity: 0.82;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .schedule-mobile-agenda {
+        display: block;
+    }
+
+    .mobile-day-heading {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-hairline);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-day-heading::before {
+        content: '';
+        width: 4px;
+        height: 1.15em;
+        background: var(--accent);
+        border-radius: 2px;
+        flex-shrink: 0;
+    }
+
+    .mobile-lesson-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mobile-lesson-list:not(:has(.mobile-lesson-card:not(.hidden)))::after {
+        content: 'Для обраного класу в цей день занять немає.';
+        display: block;
+        text-align: center;
+        padding: 2rem 1rem;
+        background: var(--white);
+        border: 1px dashed var(--border-subtle);
+        border-radius: var(--radius-lg);
+        color: var(--gray-500);
+        font-size: 0.925rem;
+    }
+
+    .mobile-lesson-card {
+        background: var(--white);
+        border: 1px solid var(--border-hairline);
+        border-left: 4px solid var(--primary);
+        border-radius: var(--radius-lg);
+        padding: 0.9rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: var(--btn-shadow-sm);
+    }
+
+    .mobile-lesson-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .mobile-lesson-number {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.16rem 0.55rem;
+        background: var(--primary);
+        color: var(--white);
+        border-radius: var(--radius-xs);
+        font-size: 0.75rem;
+        font-weight: 800;
+    }
+
+    .mobile-lesson-para {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.16rem 0.5rem;
+        background: rgba(var(--accent-rgb), 0.16);
+        color: var(--accent-text);
+        border-radius: var(--radius-xs);
+        font-size: 0.74rem;
+        font-weight: 700;
+    }
+
+    .mobile-lesson-time {
+        margin-left: auto;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gray-600);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .mobile-lesson-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .mobile-class-badge {
+        display: inline-flex;
+        align-self: flex-start;
+        padding: 0.2rem 0.6rem;
+        background: rgba(var(--primary-rgb), 0.07);
+        border: 1px solid rgba(var(--primary-rgb), 0.14);
+        border-radius: var(--radius-sm);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+    }
+
+    .mobile-subject-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        font-size: 0.975rem;
+        color: var(--gray-900);
+        line-height: 1.35;
+    }
+
+    .mobile-subject-row + .mobile-subject-row {
+        padding-top: 0.5rem;
+        border-top: 1px dashed var(--border-hairline);
+    }
+
+    .mobile-subject-row .subgroup-badge {
+        margin-bottom: 0;
+    }
+
+    .mobile-room-pill {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.2rem 0.55rem;
+        background: var(--gray-100);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-sm);
+        color: var(--primary);
+        font-size: 0.78rem;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .mobile-room-pill i {
+        color: var(--accent-text);
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 399.98px) {
+    .schedule-day-pill-full {
+        display: none;
+    }
+
+    .schedule-day-pill {
+        min-height: 44px;
+    }
+}
+
 /* Sticky Schedule Table */
 .schedule-table-wrapper {
     --col-day-w: 64px;
