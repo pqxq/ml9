@@ -1,29 +1,34 @@
 {% if grouped_schedule %}
 <div class="schedule-container">
     {% for day_name, lessons in grouped_schedule.items %}
-    <div class="schedule-day">
-        <h3>{{ day_name }}</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Клас</th>
-                    <th>Предмет</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for lesson in lessons %}
-                <tr>
-                    <td>{{ lesson.lesson_number }}</td>
-                    <td>{{ lesson.class_group }}</td>
-                    <td>{{ lesson.subject }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="schedule-day mb-4">
+        <h3 class="mobile-day-heading">{{ day_name }}</h3>
+        <div class="schedule-table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th class="num-col">№</th>
+                        <th class="class-col">Клас</th>
+                        <th>Предмет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lesson in lessons %}
+                    <tr>
+                        <td class="num-cell"><span class="num-val">{{ lesson.lesson_number }}</span></td>
+                        <td class="lesson-cell"><span class="mobile-class-badge">{{ lesson.class_group }}</span></td>
+                        <td class="lesson-cell"><div class="lesson-subject">{{ lesson.subject }}</div></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
     {% endfor %}
 </div>
 {% else %}
-<p>Розклад відсутній.</p>
+<div class="empty-state">
+    <h4>Розклад відсутній</h4>
+    <p class="mb-0">Наразі дані розкладу ще не додано.</p>
+</div>
 {% endif %}

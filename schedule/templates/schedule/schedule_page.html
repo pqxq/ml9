@@ -14,35 +14,25 @@
     </div>
 </section>
 
-
-
 <section class="schedule-section">
     <div class="container">
         <!-- Schedule Documents -->
         {% if schedule_settings.academic_year_structure_doc or schedule_settings.semester_weeks_doc %}
         <div class="schedule-documents mb-4" aria-label="Документи навчального процесу">
-            <div
-                class="row g-3 {% if not schedule_settings.academic_year_structure_doc or not schedule_settings.semester_weeks_doc %}justify-content-center{% endif %}">
+            <div class="row g-3 {% if not schedule_settings.academic_year_structure_doc or not schedule_settings.semester_weeks_doc %}justify-content-center{% endif %}">
                 {% if schedule_settings.academic_year_structure_doc %}
-                <div
-                    class="{% if schedule_settings.semester_weeks_doc %}col-md-6{% else %}col-lg-6 col-md-8{% endif %}">
-                    <a href="{{ schedule_settings.academic_year_structure_doc.url }}" class="schedule-doc-card"
-                        target="_blank" rel="noopener noreferrer"
-                        aria-label="Відкрити документ: {{ schedule_settings.academic_year_structure_title|default:'Структура навчального року' }}">
+                <div class="{% if schedule_settings.semester_weeks_doc %}col-md-6{% else %}col-lg-6 col-md-8{% endif %}">
+                    <a href="{{ schedule_settings.academic_year_structure_doc.url }}" class="schedule-doc-card" target="_blank" rel="noopener noreferrer" aria-label="Відкрити документ: {{ schedule_settings.academic_year_structure_title|default:'Структура навчального року' }}">
                         <div class="schedule-doc-icon">
                             <i class="bi bi-file-earmark-text"></i>
                         </div>
                         <div class="schedule-doc-content">
                             <span class="schedule-doc-badge">Офіційний документ</span>
-                            <div class="schedule-doc-title">{{
-                                schedule_settings.academic_year_structure_title|default:"Структура навчального року" }}
-                            </div>
+                            <div class="schedule-doc-title">{{ schedule_settings.academic_year_structure_title|default:"Структура навчального року" }}</div>
                             <div class="schedule-doc-meta">
-                                <span class="schedule-doc-ext">{{
-                                    schedule_settings.academic_year_structure_doc.file_extension|upper }}</span>
+                                <span class="schedule-doc-ext">{{ schedule_settings.academic_year_structure_doc.file_extension|upper }}</span>
                                 {% if schedule_settings.academic_year_structure_doc.file_size %}
-                                <span class="schedule-doc-size">{{
-                                    schedule_settings.academic_year_structure_doc.file_size|filesizeformat }}</span>
+                                <span class="schedule-doc-size">{{ schedule_settings.academic_year_structure_doc.file_size|filesizeformat }}</span>
                                 {% endif %}
                             </div>
                         </div>
@@ -56,24 +46,18 @@
                 {% endif %}
 
                 {% if schedule_settings.semester_weeks_doc %}
-                <div
-                    class="{% if schedule_settings.academic_year_structure_doc %}col-md-6{% else %}col-lg-6 col-md-8{% endif %}">
-                    <a href="{{ schedule_settings.semester_weeks_doc.url }}" class="schedule-doc-card" target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Відкрити документ: {{ schedule_settings.semester_weeks_title|default:'Тижні семестру навчального року' }}">
+                <div class="{% if schedule_settings.academic_year_structure_doc %}col-md-6{% else %}col-lg-6 col-md-8{% endif %}">
+                    <a href="{{ schedule_settings.semester_weeks_doc.url }}" class="schedule-doc-card" target="_blank" rel="noopener noreferrer" aria-label="Відкрити документ: {{ schedule_settings.semester_weeks_title|default:'Тижні семестру навчального року' }}">
                         <div class="schedule-doc-icon">
                             <i class="bi bi-calendar-week"></i>
                         </div>
                         <div class="schedule-doc-content">
                             <span class="schedule-doc-badge">Офіційний документ</span>
-                            <div class="schedule-doc-title">{{ schedule_settings.semester_weeks_title|default:"Тижні
-                                семестру навчального року" }}</div>
+                            <div class="schedule-doc-title">{{ schedule_settings.semester_weeks_title|default:"Тижні семестру навчального року" }}</div>
                             <div class="schedule-doc-meta">
-                                <span class="schedule-doc-ext">{{
-                                    schedule_settings.semester_weeks_doc.file_extension|upper }}</span>
+                                <span class="schedule-doc-ext">{{ schedule_settings.semester_weeks_doc.file_extension|upper }}</span>
                                 {% if schedule_settings.semester_weeks_doc.file_size %}
-                                <span class="schedule-doc-size">{{
-                                    schedule_settings.semester_weeks_doc.file_size|filesizeformat }}</span>
+                                <span class="schedule-doc-size">{{ schedule_settings.semester_weeks_doc.file_size|filesizeformat }}</span>
                                 {% endif %}
                             </div>
                         </div>
@@ -102,18 +86,10 @@
                 <div class="col-lg-8">
                     <label class="control-label">Оберіть тиждень:</label>
                     <div class="week-tabs">
-                        <a href="?week=1" class="week-tab {% if current_week == '1' %}active{% endif %}">
-                            I тиждень
-                        </a>
-                        <a href="?week=2" class="week-tab {% if current_week == '2' %}active{% endif %}">
-                            II тиждень
-                        </a>
-                        <a href="?week=3" class="week-tab {% if current_week == '3' %}active{% endif %}">
-                            III тиждень
-                        </a>
-                        <a href="?week=4" class="week-tab {% if current_week == '4' %}active{% endif %}">
-                            IV тиждень
-                        </a>
+                        <a href="?week=1" class="week-tab {% if current_week == '1' %}active{% endif %}">I тиждень</a>
+                        <a href="?week=2" class="week-tab {% if current_week == '2' %}active{% endif %}">II тиждень</a>
+                        <a href="?week=3" class="week-tab {% if current_week == '3' %}active{% endif %}">III тиждень</a>
+                        <a href="?week=4" class="week-tab {% if current_week == '4' %}active{% endif %}">IV тиждень</a>
                     </div>
                 </div>
 
@@ -121,16 +97,14 @@
                 <div class="col-lg-4">
                     <label class="control-label">Фільтр за класом:</label>
                     <div class="dropdown">
-                        <button class="class-filter-btn dropdown-toggle" type="button" id="classFilterDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="class-filter-btn dropdown-toggle" type="button" id="classFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-funnel me-2"></i>
                             <span id="classFilterLabel">Всі класи</span>
                         </button>
                         <ul class="dropdown-menu w-100" aria-labelledby="classFilterDropdown">
                             <li><a class="dropdown-item active" href="#" data-class-id="">Всі класи</a></li>
                             {% for class_group in class_groups %}
-                            <li><a class="dropdown-item" href="#" data-class-id="{{ class_group.id }}">{{
-                                    class_group.name }} ({{ class_group.study_type }})</a></li>
+                            <li><a class="dropdown-item" href="#" data-class-id="{{ class_group.id }}">{{ class_group.name }} ({{ class_group.study_type }})</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -139,16 +113,17 @@
         </div>
 
         {% if schedule_data %}
+        <!-- Mobile Day Selector -->
         <nav class="schedule-day-selector" aria-label="Вибір дня тижня">
             {% for day in schedule_days %}
             <button type="button" class="schedule-day-pill" data-day-number="{{ day.number }}">
-                <span class="schedule-day-short">{% if day.number == 1 %}Пн{% elif day.number == 2 %}Вт{% elif
-                    day.number == 3 %}Ср{% elif day.number == 4 %}Чт{% else %}Пт{% endif %}</span>
+                <span class="schedule-day-short">{% if day.number == 1 %}Пн{% elif day.number == 2 %}Вт{% elif day.number == 3 %}Ср{% elif day.number == 4 %}Чт{% else %}Пт{% endif %}</span>
                 <span class="schedule-day-pill-full">{{ day.name }}</span>
             </button>
             {% endfor %}
         </nav>
 
+        <!-- Mobile Card Agenda -->
         <div class="schedule-mobile-agenda" aria-label="Розклад занять на мобільному пристрої">
             {% for day in schedule_days %}
             <section class="mobile-day-section" data-day-number="{{ day.number }}">
@@ -171,8 +146,7 @@
                             <time class="mobile-lesson-time">{{ lesson_row.time }}</time>
                         </div>
                         <div class="mobile-lesson-content">
-                            <span class="mobile-class-badge">{{ class_group.name }} • {{ class_group.study_type
-                                }}</span>
+                            <span class="mobile-class-badge">{{ class_group.name }} • {{ class_group.study_type }}</span>
                             {% for lesson in lesson_list %}
                             <div class="mobile-subject-row">
                                 {% if lesson.sub_group %}
@@ -180,8 +154,7 @@
                                 {% endif %}
                                 <strong>{{ lesson.subject }}</strong>
                                 {% if lesson.cabinet %}
-                                <span class="mobile-room-pill"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>{{
-                                    lesson.cabinet }}</span>
+                                <span class="mobile-room-pill"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>{{ lesson.cabinet }}</span>
                                 {% endif %}
                             </div>
                             {% endfor %}
@@ -196,21 +169,19 @@
             {% endfor %}
         </div>
 
+        <!-- Desktop Matrix Table -->
         <div class="schedule-table-wrapper">
             <table class="schedule-table" id="scheduleTable">
                 <thead>
                     <tr>
-                        <th class="day-col"><span class="header-text-vertical"
-                                aria-label="День"><span>Д</span><span>Е</span><span>Н</span><span>Ь</span></span></th>
-                        <th class="para-col"><span class="header-text-vertical"
-                                aria-label="Пара"><span>П</span><span>А</span><span>Р</span><span>А</span></span></th>
+                        <th class="day-col"><span class="header-text-vertical" aria-label="День"><span>Д</span><span>Е</span><span>Н</span><span>Ь</span></span></th>
+                        <th class="para-col"><span class="header-text-vertical" aria-label="Пара"><span>П</span><span>А</span><span>Р</span><span>А</span></span></th>
                         <th class="num-col">№</th>
                         <th class="time-col">Час</th>
                         {% for class_group in class_groups %}
                         <th class="class-col" data-class-id="{{ class_group.id }}">
                             <div class="class-name">{{ class_group.name }}</div>
-                            <span
-                                class="class-badge {% if 'дист' in class_group.study_type|lower %}badge-dist{% else %}badge-pres{% endif %}">
+                            <span class="class-badge {% if 'дист' in class_group.study_type|lower %}badge-dist{% else %}badge-pres{% endif %}">
                                 {{ class_group.study_type }}
                             </span>
                         </th>
@@ -220,8 +191,7 @@
                 <tbody>
                     {% for day in schedule_days %}
                     {% for lesson_num, lesson_row in day.lessons.items %}
-                    <tr
-                        class="{% if forloop.first %}day-start{% endif %} {% if forloop.parentloop.counter|divisibleby:2 %}day-even{% endif %}">
+                    <tr class="{% if forloop.first %}day-start{% endif %} {% if forloop.parentloop.counter|divisibleby:2 %}day-even{% endif %}">
                         {% if forloop.first %}
                         <td class="day-cell" rowspan="{{ day.lessons|length }}">
                             <div class="day-badge-wrapper">
@@ -246,8 +216,7 @@
                         {% with lesson_list=lesson_row.lessons|get_item:class_group.id %}
                         {% if lesson_list %}
                         {% if not lesson_list.0.skip %}
-                        <td class="lesson-cell" data-class-id="{{ class_group.id }}"
-                            rowspan="{{ lesson_list.0.rowspan }}">
+                        <td class="lesson-cell" data-class-id="{{ class_group.id }}" rowspan="{{ lesson_list.0.rowspan }}">
                             <div class="lesson-card-wrapper">
                                 {% for lesson in lesson_list %}
                                 <div class="lesson-item {% if not forloop.last %}has-divider{% endif %}">
@@ -282,8 +251,7 @@
         {% else %}
         <div class="empty-state">
             <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
-                <path fill="currentColor"
-                    d="M7 2h2v2h6V2h2v2h3v17H4V4h3V2zm11 7H6v10h12V9zm-3 2 1.4 1.4L13.8 15l2.6 2.6L15 19l-2.6-2.6L9.8 19 8.4 17.6 11 15l-2.6-2.6L9.8 11l2.6 2.6L15 11z" />
+                <path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v17H4V4h3V2zm11 7H6v10h12V9zm-3 2 1.4 1.4L13.8 15l2.6 2.6L15 19l-2.6-2.6L9.8 19 8.4 17.6 11 15l-2.6-2.6L9.8 11l2.6 2.6L15 11z" />
             </svg>
             <h4>Розклад на цей тиждень формується</h4>
             <p>Будь ласка, перевірте розклад І або ІІ тижня або зверніться до класного керівника.</p>
@@ -301,83 +269,84 @@
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const classFilterDropdown = document.getElementById('classFilterDropdown');
-        const classFilterLabel = document.getElementById('classFilterLabel');
-        const dropdownItems = document.querySelectorAll('#classFilterDropdown + .dropdown-menu .dropdown-item');
-        const scheduleTable = document.getElementById('scheduleTable');
-        const mobileLessonCards = document.querySelectorAll('.mobile-lesson-card');
-        const mobileDaySections = document.querySelectorAll('.mobile-day-section');
-        const dayPills = document.querySelectorAll('.schedule-day-pill');
+document.addEventListener('DOMContentLoaded', function () {
+    const classFilterDropdown = document.getElementById('classFilterDropdown');
+    const classFilterLabel = document.getElementById('classFilterLabel');
+    const dropdownItems = document.querySelectorAll('#classFilterDropdown + .dropdown-menu .dropdown-item');
+    const scheduleTable = document.getElementById('scheduleTable');
+    const mobileLessonCards = document.querySelectorAll('.mobile-lesson-card');
+    const mobileDaySections = document.querySelectorAll('.mobile-day-section');
+    const dayPills = document.querySelectorAll('.schedule-day-pill');
 
-        function applyClassFilter(selectedClassId, selectedLabel) {
-            if (!classFilterLabel) return;
+    function applyClassFilter(selectedClassId, selectedLabel) {
+        if (!classFilterLabel) return;
 
-            classFilterLabel.textContent = selectedLabel;
-            dropdownItems.forEach(item => {
-                item.classList.toggle('active', item.getAttribute('data-class-id') === selectedClassId);
-            });
-
-            const classCols = scheduleTable ? scheduleTable.querySelectorAll('.class-col') : [];
-            const lessonCells = scheduleTable ? scheduleTable.querySelectorAll('.lesson-cell') : [];
-
-            mobileLessonCards.forEach(card => {
-                card.classList.toggle('hidden', selectedClassId !== '' && card.dataset.classId !== selectedClassId);
-            });
-
-            if (selectedClassId === '') {
-                classCols.forEach(col => col.classList.remove('hidden'));
-                lessonCells.forEach(cell => cell.classList.remove('hidden'));
-                try { localStorage.removeItem('ml9_schedule_selected_class'); } catch (e) { }
-            } else {
-                classCols.forEach(col => {
-                    col.classList.toggle('hidden', col.getAttribute('data-class-id') !== selectedClassId);
-                });
-                lessonCells.forEach(cell => {
-                    cell.classList.toggle('hidden', cell.getAttribute('data-class-id') !== selectedClassId);
-                });
-                try { localStorage.setItem('ml9_schedule_selected_class', selectedClassId); } catch (e) { }
-            }
-        }
-
-        if (classFilterDropdown) {
-            dropdownItems.forEach(function (item) {
-                item.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    applyClassFilter(this.getAttribute('data-class-id'), this.textContent.trim());
-                });
-            });
-
-            try {
-                const savedClassId = localStorage.getItem('ml9_schedule_selected_class');
-                if (savedClassId) {
-                    const targetItem = Array.from(dropdownItems).find(i => i.getAttribute('data-class-id') === savedClassId);
-                    if (targetItem) {
-                        applyClassFilter(savedClassId, targetItem.textContent.trim());
-                    }
-                }
-            } catch (e) { }
-        }
-
-        const today = new Date().getDay();
-        const defaultDay = today >= 1 && today <= 5 ? today : 1;
-
-        function selectDay(dayNumber) {
-            dayPills.forEach(pill => pill.classList.toggle('active', pill.dataset.dayNumber === String(dayNumber)));
-            mobileDaySections.forEach(section => {
-                section.classList.toggle('is-hidden', section.dataset.dayNumber !== String(dayNumber));
-            });
-        }
-
-        dayPills.forEach(pill => {
-            pill.addEventListener('click', () => selectDay(pill.dataset.dayNumber));
+        classFilterLabel.textContent = selectedLabel;
+        dropdownItems.forEach(item => {
+            item.classList.toggle('active', item.getAttribute('data-class-id') === selectedClassId);
         });
 
-        if (dayPills.length) {
-            const availableDay = Array.from(dayPills).find(pill => pill.dataset.dayNumber === String(defaultDay));
-            selectDay(availableDay ? defaultDay : dayPills[0].dataset.dayNumber);
-        }
-    });
-</script>
+        const classCols = scheduleTable ? scheduleTable.querySelectorAll('.class-col') : [];
+        const lessonCells = scheduleTable ? scheduleTable.querySelectorAll('.lesson-cell') : [];
 
+        mobileLessonCards.forEach(card => {
+            card.classList.toggle('hidden', selectedClassId !== '' && card.dataset.classId !== selectedClassId);
+        });
+
+        if (selectedClassId === '') {
+            classCols.forEach(col => col.classList.remove('hidden'));
+            lessonCells.forEach(cell => cell.classList.remove('hidden'));
+            try { localStorage.removeItem('ml9_schedule_selected_class'); } catch (e) {}
+        } else {
+            classCols.forEach(col => {
+                col.classList.toggle('hidden', col.getAttribute('data-class-id') !== selectedClassId);
+            });
+            lessonCells.forEach(cell => {
+                cell.classList.toggle('hidden', cell.getAttribute('data-class-id') !== selectedClassId);
+            });
+            try { localStorage.setItem('ml9_schedule_selected_class', selectedClassId); } catch (e) {}
+        }
+    }
+
+    if (classFilterDropdown) {
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                applyClassFilter(this.getAttribute('data-class-id'), this.textContent.trim());
+            });
+        });
+
+        try {
+            const savedClassId = localStorage.getItem('ml9_schedule_selected_class');
+            if (savedClassId) {
+                const targetItem = Array.from(dropdownItems).find(i => i.getAttribute('data-class-id') === savedClassId);
+                if (targetItem) {
+                    applyClassFilter(savedClassId, targetItem.textContent.trim());
+                } else {
+                    localStorage.removeItem('ml9_schedule_selected_class');
+                }
+            }
+        } catch (e) {}
+    }
+
+    const today = new Date().getDay();
+    const defaultDay = today >= 1 && today <= 5 ? today : 1;
+
+    function selectDay(dayNumber) {
+        dayPills.forEach(pill => pill.classList.toggle('active', pill.dataset.dayNumber === String(dayNumber)));
+        mobileDaySections.forEach(section => {
+            section.classList.toggle('is-hidden', section.dataset.dayNumber !== String(dayNumber));
+        });
+    }
+
+    dayPills.forEach(pill => {
+        pill.addEventListener('click', () => selectDay(pill.dataset.dayNumber));
+    });
+
+    if (dayPills.length) {
+        const availableDay = Array.from(dayPills).find(pill => pill.dataset.dayNumber === String(defaultDay));
+        selectDay(availableDay ? defaultDay : dayPills[0].dataset.dayNumber);
+    }
+});
+</script>
 {% endblock %}
