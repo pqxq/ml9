@@ -11,18 +11,19 @@
             <div class="col-12 col-lg-7">
                 <div class="hero-content">
                     <h1 class="hero-title" id="home-hero-title">
-                        Класична освіта, академічні цінності та сучасні знання
-                    </h1>
-                    <p class="hero-subtitle">
-                        Заклад повної загальної середньої освіти для учнів 10–11 класів. Поєднуємо фундаментальну підготовку з інноваційними навчальними практиками та науковою діяльністю.
-                    </p>
-                    <div class="hero-buttons d-flex flex-wrap gap-3 align-items-center">
+    <span class="highlight">МИКОЛАЇВСЬКИЙ ЛІЦЕЙ №9</span>
+</h1>
+<p class="hero-subtitle">
+    Профільна освіта, що готує до університету.
+</p>
+                    <div class="hero-buttons">
                         <a href="/publichna-informatsiia/vstup-do-litseiu/" class="btn btn-primary-custom">
                             Вступ до ліцею
-                            <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
                         </a>
                         <a href="/schedule/" class="btn btn-outline-light">
-                            <i class="bi bi-calendar-week me-2" aria-hidden="true"></i>Розклад занять
+                            <i class="bi bi-calendar-week" aria-hidden="true"></i>
+                            Розклад занять
                         </a>
                     </div>
 
@@ -34,7 +35,7 @@
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
                         <div class="hero-metric-item">
-                            <span class="metric-value">МНАУ & ЧНУ</span>
+                            <span class="metric-value">МНАУ &amp; ЧНУ</span>
                             <span class="metric-label">Партнерство з ВНЗ</span>
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
@@ -49,7 +50,7 @@
             <!-- Right Column: Institutional Seal -->
             <div class="col-12 col-lg-5 text-center text-lg-end">
                 <div class="hero-seal-panel">
-                    <img src="{% static 'images/emblem.webp' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" decoding="async">
+                    <img src="{% static 'images/emblem.webp' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" fetchpriority="high" decoding="async">
                     <div class="hero-seal-meta">
                         <span class="seal-caption">Засновано у 1997 році</span>
                     </div>
@@ -63,7 +64,7 @@
 <section class="announcement-section" aria-label="Оголошення">
     <div class="container">
         <div class="announcement-banner">
-            <div class="announcement-icon-wrapper">
+            <div class="announcement-icon-wrapper" aria-hidden="true">
                 <i class="bi bi-megaphone-fill"></i>
             </div>
             <div class="announcement-content">
@@ -159,36 +160,38 @@
 
 {% if ticker_images %}
 {% load cache %}
-<section class="gallery-marquee-section">
+<section class="gallery-marquee-section" aria-labelledby="gallery-section-title">
     {% cache 3600 home_gallery_ticker %}
     <div class="container">
         <div class="section-header text-center">
             <span class="section-kicker">Фотогалерея</span>
-            <h2 class="section-title">Моменти з життя ліцею</h2>
+            <h2 class="section-title" id="gallery-section-title">Моменти з життя ліцею</h2>
             <p class="section-subtitle">Події, урочистості та досягнення учнівського колективу</p>
         </div>
     </div>
-    
+
     <div class="gallery-marquee-dual">
         {# Row 1 — scrolls left (default) #}
         <div class="gallery-marquee-wrapper">
             <div class="gallery-marquee-track">
                 {% for img in ticker_images %}{% if forloop.counter0|divisibleby:2 %}
-                <div class="gallery-marquee-image" data-src="{{ img.image.file.url }}"
-                    data-caption="{{ img.caption|default:'' }}" 
+                {% image img.image width-450 format-webp as ticker_img %}
+                {% image img.image width-1600 format-webp as lightbox_img %}
+                <div class="gallery-marquee-image" data-src="{{ lightbox_img.url }}"
+                    data-caption="{{ img.caption|default:'' }}"
                     role="button" tabindex="0" aria-label="Відкрити зображення: {{ img.caption|default:'Фото з галереї' }}">
-                    {% image img.image width-450 format-webp as ticker_img %}
                     <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="{{ ticker_img.alt|default:img.caption|default:'Фото з галереї' }}">
                     {% if img.caption %}<span class="gallery-marquee-caption">{{ img.caption }}</span>{% endif %}
                 </div>
                 {% endif %}{% endfor %}
-                {# Duplicate for seamless loop #}
+                {# Duplicate for seamless loop (hidden from assistive tech & tab order) #}
                 {% for img in ticker_images %}{% if forloop.counter0|divisibleby:2 %}
-                <div class="gallery-marquee-image" data-src="{{ img.image.file.url }}"
+                {% image img.image width-450 format-webp as ticker_img %}
+                {% image img.image width-1600 format-webp as lightbox_img %}
+                <div class="gallery-marquee-image" data-src="{{ lightbox_img.url }}"
                     data-caption="{{ img.caption|default:'' }}"
-                    role="button" tabindex="0" aria-label="Відкрити зображення: {{ img.caption|default:'Фото з галереї' }}">
-                    {% image img.image width-450 format-webp as ticker_img %}
-                    <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="{{ ticker_img.alt|default:img.caption|default:'Фото з галереї' }}">
+                    aria-hidden="true">
+                    <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="">
                     {% if img.caption %}<span class="gallery-marquee-caption">{{ img.caption }}</span>{% endif %}
                 </div>
                 {% endif %}{% endfor %}
@@ -199,21 +202,23 @@
         <div class="gallery-marquee-wrapper">
             <div class="gallery-marquee-track gallery-marquee-track--reverse">
                 {% for img in ticker_images %}{% if not forloop.counter0|divisibleby:2 %}
-                <div class="gallery-marquee-image" data-src="{{ img.image.file.url }}"
+                {% image img.image width-450 format-webp as ticker_img %}
+                {% image img.image width-1600 format-webp as lightbox_img %}
+                <div class="gallery-marquee-image" data-src="{{ lightbox_img.url }}"
                     data-caption="{{ img.caption|default:'' }}"
                     role="button" tabindex="0" aria-label="Відкрити зображення: {{ img.caption|default:'Фото з галереї' }}">
-                    {% image img.image width-450 format-webp as ticker_img %}
                     <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="{{ ticker_img.alt|default:img.caption|default:'Фото з галереї' }}">
                     {% if img.caption %}<span class="gallery-marquee-caption">{{ img.caption }}</span>{% endif %}
                 </div>
                 {% endif %}{% endfor %}
-                {# Duplicate for seamless loop #}
+                {# Duplicate for seamless loop (hidden from assistive tech & tab order) #}
                 {% for img in ticker_images %}{% if not forloop.counter0|divisibleby:2 %}
-                <div class="gallery-marquee-image" data-src="{{ img.image.file.url }}"
+                {% image img.image width-450 format-webp as ticker_img %}
+                {% image img.image width-1600 format-webp as lightbox_img %}
+                <div class="gallery-marquee-image" data-src="{{ lightbox_img.url }}"
                     data-caption="{{ img.caption|default:'' }}"
-                    role="button" tabindex="0" aria-label="Відкрити зображення: {{ img.caption|default:'Фото з галереї' }}">
-                    {% image img.image width-450 format-webp as ticker_img %}
-                    <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="{{ ticker_img.alt|default:img.caption|default:'Фото з галереї' }}">
+                    aria-hidden="true">
+                    <img src="{{ ticker_img.url }}" width="{{ ticker_img.width }}" height="{{ ticker_img.height }}" loading="lazy" decoding="async" alt="">
                     {% if img.caption %}<span class="gallery-marquee-caption">{{ img.caption }}</span>{% endif %}
                 </div>
                 {% endif %}{% endfor %}
@@ -224,7 +229,8 @@
     <div class="container">
         <div class="text-center gallery-cta-wrapper">
             <a href="/gallery/" class="btn btn-outline-primary-custom px-4">
-                <i class="bi bi-images me-2"></i>Переглянути галерею
+                <i class="bi bi-images" aria-hidden="true"></i>
+                Переглянути галерею
             </a>
         </div>
     </div>
@@ -232,38 +238,38 @@
 
 <div id="marqueeLightbox" class="gallery-lightbox album-lightbox marquee-lightbox-modal" role="dialog" aria-modal="true" aria-label="Перегляд зображення">
     <div class="gallery-lightbox-backdrop"></div>
-    
+
     <!-- Top toolbar -->
     <div class="gallery-lightbox-toolbar">
         <div class="gallery-lightbox-counter-badge" id="marqueeLightboxCounter">
-            <i class="bi bi-images me-1"></i>
+            <i class="bi bi-images" aria-hidden="true"></i>
             <span id="marqueeLightboxCounterText">1 / 1</span>
         </div>
         <div class="gallery-lightbox-actions">
             <button type="button" class="gallery-lightbox-action-btn" id="marqueeLightboxZoomBtn" aria-label="Збільшити зображення" title="Збільшити (Z)">
-                <i class="bi bi-zoom-in" id="marqueeLightboxZoomIcon"></i>
+                <i class="bi bi-zoom-in" id="marqueeLightboxZoomIcon" aria-hidden="true"></i>
             </button>
             <button type="button" class="gallery-lightbox-action-btn" id="marqueeLightboxFullscreenBtn" aria-label="Повноекранний режим" title="Повний екран (F)">
-                <i class="bi bi-arrows-fullscreen" id="marqueeLightboxFullscreenIcon"></i>
+                <i class="bi bi-arrows-fullscreen" id="marqueeLightboxFullscreenIcon" aria-hidden="true"></i>
             </button>
             <button type="button" class="gallery-lightbox-close" aria-label="Закрити" title="Закрити (Esc)">
-                <i class="bi bi-x-lg"></i>
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
             </button>
         </div>
     </div>
 
     <!-- Navigation buttons -->
     <button type="button" class="gallery-lightbox-nav gallery-lightbox-prev marquee-lightbox-prev" aria-label="Попереднє фото" title="Попереднє (←)">
-        <i class="bi bi-chevron-left"></i>
+        <i class="bi bi-chevron-left" aria-hidden="true"></i>
     </button>
     <button type="button" class="gallery-lightbox-nav gallery-lightbox-next marquee-lightbox-next" aria-label="Наступне фото" title="Наступне (→)">
-        <i class="bi bi-chevron-right"></i>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
     </button>
 
     <!-- Main Content -->
     <div class="gallery-lightbox-content">
         <div class="gallery-lightbox-img-wrapper" id="marqueeLightboxImgWrapper">
-            <img class="gallery-lightbox-img" id="lightboxImg" alt="Gallery Image" width="1200" height="800" loading="lazy" decoding="async">
+            <img class="gallery-lightbox-img" id="lightboxImg" alt="Зображення з галереї" width="1200" height="800" loading="lazy" decoding="async">
         </div>
         <div class="gallery-lightbox-caption-wrapper" id="marqueeLightboxCaptionWrapper">
             <div class="gallery-lightbox-caption" id="marqueeLightboxCaption"></div>
@@ -298,8 +304,8 @@
         var allImageElements = document.querySelectorAll('.gallery-marquee-image');
         var imagesData = [];
         var seenSources = new Set();
-        
-        allImageElements.forEach(function(img) {
+
+        allImageElements.forEach(function (img) {
             var src = img.getAttribute('data-src');
             if (src && !seenSources.has(src)) {
                 seenSources.add(src);
@@ -311,7 +317,7 @@
         });
 
         if (imagesData.length === 0) return;
-        
+
         var currentIndex = 0;
         var isZoomed = false;
 
@@ -347,7 +353,7 @@
             }
         }
 
-        document.addEventListener('fullscreenchange', function() {
+        document.addEventListener('fullscreenchange', function () {
             if (fullscreenIcon) {
                 fullscreenIcon.className = document.fullscreenElement ? 'bi bi-fullscreen-exit' : 'bi bi-arrows-fullscreen';
             }
@@ -367,6 +373,7 @@
             resetZoom();
             modalImg.src = imagesData[currentIndex].src;
             var caption = imagesData[currentIndex].caption;
+            modalImg.alt = caption || 'Зображення з галереї';
             if (caption) {
                 captionText.textContent = caption;
                 captionWrapper.classList.add('has-caption');
@@ -381,14 +388,14 @@
         }
 
         function openLightbox(src) {
-            currentIndex = imagesData.findIndex(function(img) { return img.src === src; });
+            currentIndex = imagesData.findIndex(function (img) { return img.src === src; });
             if (currentIndex < 0) currentIndex = 0;
-            
+
             resetZoom();
             updateLightboxContent();
             modal.classList.add("show");
             document.body.style.overflow = 'hidden';
-            
+
             var showNav = imagesData.length > 1;
             if (prevBtn) prevBtn.style.display = showNav ? 'flex' : 'none';
             if (nextBtn) nextBtn.style.display = showNav ? 'flex' : 'none';
@@ -397,23 +404,23 @@
         function closeLightboxFunc() {
             resetZoom();
             if (document.fullscreenElement) {
-                document.exitFullscreen().catch(function() {});
+                document.exitFullscreen().catch(function () {});
             }
             modal.classList.remove("show");
             document.body.style.overflow = '';
         }
-        
+
         function showPrev() {
             currentIndex = (currentIndex - 1 + imagesData.length) % imagesData.length;
             updateLightboxContent();
         }
-        
+
         function showNext() {
             currentIndex = (currentIndex + 1) % imagesData.length;
             updateLightboxContent();
         }
 
-        // Attach click handlers to images
+        // Attach click & keyboard handlers to images
         allImageElements.forEach(function (img) {
             img.addEventListener('click', function () {
                 var src = this.getAttribute('data-src');
@@ -430,14 +437,14 @@
 
         if (closeBtn) closeBtn.addEventListener('click', closeLightboxFunc);
         if (backdrop) backdrop.addEventListener('click', closeLightboxFunc);
-        if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPrev(); });
-        if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showNext(); });
-        if (zoomBtn) zoomBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleZoom(); });
-        if (fullscreenBtn) fullscreenBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleFullscreen(); });
-        if (modalImg) modalImg.addEventListener('click', function(e) { e.stopPropagation(); toggleZoom(); });
-        
+        if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); showPrev(); });
+        if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); showNext(); });
+        if (zoomBtn) zoomBtn.addEventListener('click', function (e) { e.stopPropagation(); toggleZoom(); });
+        if (fullscreenBtn) fullscreenBtn.addEventListener('click', function (e) { e.stopPropagation(); toggleFullscreen(); });
+        if (modalImg) modalImg.addEventListener('click', function (e) { e.stopPropagation(); toggleZoom(); });
+
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (modal.classList.contains('show')) {
                 if (e.key === 'Escape') closeLightboxFunc();
                 if (e.key === 'ArrowLeft') showPrev();
@@ -452,14 +459,14 @@
         var touchEndX = 0;
         var touchStartY = 0;
         var touchEndY = 0;
-        
-        modal.addEventListener('touchstart', function(e) {
+
+        modal.addEventListener('touchstart', function (e) {
             if (isZoomed) return;
             touchStartX = e.changedTouches[0].screenX;
             touchStartY = e.changedTouches[0].screenY;
         }, { passive: true });
-        
-        modal.addEventListener('touchend', function(e) {
+
+        modal.addEventListener('touchend', function (e) {
             if (isZoomed) return;
             touchEndX = e.changedTouches[0].screenX;
             touchEndY = e.changedTouches[0].screenY;
@@ -474,11 +481,11 @@
 </script>
 {% endif %}
 
-<section class="news-section">
+<section class="news-section" aria-labelledby="news-section-title">
     <div class="container">
         <div class="section-header text-center">
             <span class="section-kicker">Новини ліцею</span>
-            <h2 class="section-title">Останні події</h2>
+            <h2 class="section-title" id="news-section-title">Останні події</h2>
             <p class="section-subtitle">Офіційні повідомлення, наукові події та шкільне життя</p>
         </div>
 
@@ -491,19 +498,19 @@
                         {% image post.image width-800 format-webp as latest_news_image %}
                         <img src="{{ latest_news_image.url }}" width="{{ latest_news_image.width }}" height="{{ latest_news_image.height }}" class="w-100 h-100 object-fit-cover" loading="lazy" decoding="async" alt="{{ latest_news_image.alt|default:post.title }}">
                         {% else %}
-                        <div class="news-placeholder">
+                        <div class="news-placeholder" aria-hidden="true">
                             <i class="bi bi-newspaper"></i>
                         </div>
                         {% endif %}
                         <span class="news-card-date">
-                            <i class="bi bi-calendar3 me-1"></i>{{ post.date|date:"d E Y" }}
+                            <i class="bi bi-calendar3 me-1" aria-hidden="true"></i>{{ post.date|date:"d E Y" }}
                         </span>
                     </div>
                     <div class="news-card-body">
                         {% if post.tags.all %}
                         <div class="news-tags">
                             {% for tag in post.tags.all %}
-                            <span class="news-tag">{{ tag.name }}</span>
+                            <a href="/novyny/?tag={{ tag.slug|urlencode }}" class="news-tag news-tag-interactive">{{ tag.name }}</a>
                             {% endfor %}
                         </div>
                         {% endif %}
@@ -514,7 +521,7 @@
                         <div class="news-card-footer">
                             <span class="read-more">
                                 Читати далі
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
                             </span>
                         </div>
                     </div>
@@ -523,7 +530,7 @@
             {% empty %}
             <div class="col-12">
                 <div class="empty-state">
-                    <i class="bi bi-inbox"></i>
+                    <i class="bi bi-inbox" aria-hidden="true"></i>
                     <h4>Новини ще не додані</h4>
                     <p>Слідкуйте за оновленнями</p>
                 </div>
@@ -535,7 +542,7 @@
         <div class="text-center mt-4">
             <a href="/novyny/" class="btn btn-outline-primary-custom px-4">
                 Всі новини ліцею
-                <i class="bi bi-arrow-right ms-2"></i>
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
         </div>
         {% endif %}
@@ -543,17 +550,17 @@
 </section>
 
 {% if page.quick_links.all %}
-<section class="quick-links-section">
+<section class="quick-links-section" aria-labelledby="quick-links-section-title">
     <div class="container">
         <div class="section-header text-center">
             <span class="section-kicker">Швидкий доступ</span>
-            <h2 class="section-title">Корисні посилання</h2>
+            <h2 class="section-title" id="quick-links-section-title">Корисні посилання</h2>
         </div>
         <div class="row g-4 justify-content-center">
             {% for link in page.quick_links.all %}
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{% if link.link %}{% pageurl link.link %}{% else %}#{% endif %}" class="quick-link-card">
-                    <div class="quick-link-icon">
+                <a href="{% if link.link %}{% pageurl link.link %}{% elif link.url %}{{ link.url }}{% else %}#{% endif %}" class="quick-link-card">
+                    <div class="quick-link-icon" aria-hidden="true">
                         {% if link.icon %}
                         <i class="{{ link.icon }}"></i>
                         {% else %}
@@ -561,7 +568,7 @@
                         {% endif %}
                     </div>
                     <h3 class="quick-link-title">{{ link.title }}</h3>
-                    <span class="quick-link-arrow">
+                    <span class="quick-link-arrow" aria-hidden="true">
                         <i class="bi bi-arrow-right"></i>
                     </span>
                 </a>
