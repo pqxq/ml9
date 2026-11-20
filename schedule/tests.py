@@ -62,12 +62,14 @@ class ScheduleViewHelpersTests(SimpleTestCase):
         third_row = monday_rows[3]
 
         self.assertEqual(first_row["para"], "I")
+        self.assertEqual(first_row["time"], "08:55 – 09:45")
         self.assertTrue(first_row["show_para"])
         self.assertEqual(first_row["para_rowspan"], 2)
         self.assertEqual(first_row["lessons"][1][0]["rowspan"], 2)
         self.assertFalse(first_row["lessons"][1][0]["skip"])
 
         self.assertFalse(second_row["show_para"])
+        self.assertEqual(second_row["time"], "09:50 – 10:35")
         self.assertTrue(second_row["lessons"][1][0]["skip"])
 
         self.assertEqual(third_row["para"], "II")
