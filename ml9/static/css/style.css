@@ -8481,3 +8481,60 @@ a:hover {
     transform: translateY(0) scale(0.985);
     box-shadow: none;
 }
+
+/* =========================================================
+   Schedule Table Header Fix (Unified Navy Bar + Firefox Sticky)
+   ========================================================= */
+.schedule-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.schedule-table thead th,
+.schedule-table thead th.class-col {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--primary, #132944);
+    background-color: var(--primary, #132944);
+    color: #FFFFFF;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: none;
+}
+
+/* Keep top-left sticky columns above scrolling class columns */
+.schedule-table thead th.day-col,
+.schedule-table thead th.para-col,
+.schedule-table thead th.num-col,
+.schedule-table thead th.time-col {
+    z-index: 4;
+    background: var(--primary, #132944);
+    background-color: var(--primary, #132944);
+}
+
+.schedule-table thead th.time-col {
+    border-right: 2px solid rgba(255, 255, 255, 0.24);
+}
+
+/* Round only the outer corners of the header bar */
+.schedule-table thead tr:first-child th:first-child {
+    border-top-left-radius: 14px;
+}
+
+.schedule-table thead tr:first-child th:last-child {
+    border-top-right-radius: 14px;
+    border-right: none;
+}
+
+/* Ensure class names inside th.class-col are always crisp white */
+.schedule-table thead th.class-col .class-name {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+}
