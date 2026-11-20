@@ -8,7 +8,7 @@
         return;
     }
 
-    const setSidebarOpen = (isOpen) => {
+    const setSidebarOpen = (isOpen, { restoreFocus = true } = {}) => {
         sidebar.classList.toggle('show', isOpen);
         overlay.classList.toggle('show', isOpen);
         document.body.classList.toggle('sidebar-open', isOpen);
@@ -18,26 +18,62 @@
 
         if (isOpen) {
             sidebar.querySelector('input, a, button')?.focus();
-        } else {
+        } else if (restoreFocus) {
             toggle.focus();
         }
     };
 
-    const getPath = (href) => {
+    const normalizePath = (pathname) => {
+        if (!pathname) {
+            return '/';
+        }
+        return pathname.length > 1 ? pathname.replace(/\/+$/, '') : '/';
+    };
+
+    const getInternalPath = (href) => {
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+            return '';
+        }
         try {
-            return new URL(href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
+            const url = new URL(href, window.location.origin);
+            if (url.origin !== window.location.origin) {
+                return '';
+            }
+            return normalizePath(url.pathname);
         } catch {
             return '';
         }
     };
 
     const markActiveLinks = () => {
-        const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
-        const links = [...sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink')];
-        const activeLink = links.find((link) => {
-            const path = getPath(link.getAttribute('href') || '');
-            return path === currentPath || (path !== '/' && currentPath.startsWith(`${path}/`));
+        const currentPath = normalizePath(window.location.pathname);
+        const navItems = [...sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink')];
+
+        // Clear any duplicate server-rendered active states first
+        navItems.forEach((item) => {
+            item.classList.remove('active', 'has-active-child');
+            item.removeAttribute('aria-current');
         });
+
+        // Ignore accordion collapse toggles (href="#...")
+        const navigableLinks = navItems.filter((item) => getInternalPath(item.getAttribute('href') || '') !== '');
+
+        // 1. Exact path match takes top priority
+        let activeLink = navigableLinks.find((link) => {
+            return getInternalPath(link.getAttribute('href') || '') === currentPath;
+        });
+
+        // 2. Fallback to single longest prefix match on deeper subpages (e.g. /novyny/slug/)
+        if (!activeLink && currentPath !== '/') {
+            let longestMatchLength = 0;
+            for (const link of navigableLinks) {
+                const path = getInternalPath(link.getAttribute('href') || '');
+                if (path !== '/' && currentPath.startsWith(`${path}/`) && path.length > longestMatchLength) {
+                    activeLink = link;
+                    longestMatchLength = path.length;
+                }
+            }
+        }
 
         if (!activeLink) {
             return;
@@ -45,6 +81,7 @@
 
         activeLink.classList.add('active');
         activeLink.setAttribute('aria-current', 'page');
+
         const submenu = activeLink.closest('.sidebar-submenu');
         const submenuToggle = submenu?.previousElementSibling;
         if (submenu && submenuToggle instanceof HTMLElement) {
@@ -79,7 +116,7 @@
     });
     mobileQuery.addEventListener('change', ({ matches }) => {
         if (!matches) {
-            setSidebarOpen(false);
+            setSidebarOpen(false, { restoreFocus: false });
         } else {
             sidebar.setAttribute('aria-hidden', 'true');
         }

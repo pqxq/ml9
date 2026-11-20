@@ -10,8 +10,9 @@
             <!-- Left Column: Primary Identity & Direct Actions -->
             <div class="col-12 col-lg-7">
                 <div class="hero-content">
+                    <span class="hero-kicker">Засновано у 1997 році</span>
                     <h1 class="hero-title" id="home-hero-title">
-    <span class="highlight">МИКОЛАЇВСЬКИЙ ЛІЦЕЙ №9</span>
+    <span class="highlight">Миколаївський ліцей №9</span>
 </h1>
 <p class="hero-subtitle">
     Профільна освіта, що готує до університету.
@@ -29,17 +30,17 @@
 
                     <!-- Domain-Specific Institutional Metrics -->
                     <div class="hero-metrics-strip">
-                        <div class="hero-metric-item">
+                        <div class="hero-metric-item" data-mobile-label="10–11 класи">
                             <span class="metric-value">10–11</span>
                             <span class="metric-label">Класи навчання</span>
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
-                        <div class="hero-metric-item">
+                        <div class="hero-metric-item" data-mobile-label="МНАУ та ЧНУ">
                             <span class="metric-value">МНАУ &amp; ЧНУ</span>
                             <span class="metric-label">Партнерство з ВНЗ</span>
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
-                        <div class="hero-metric-item">
+                        <div class="hero-metric-item" data-mobile-label="Безоплатно">
                             <span class="metric-value">100%</span>
                             <span class="metric-label">Безоплатна середня освіта</span>
                         </div>
@@ -51,9 +52,6 @@
             <div class="col-12 col-lg-5 text-center text-lg-end">
                 <div class="hero-seal-panel">
                     <img src="{% static 'images/emblem.webp' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" fetchpriority="high" decoding="async">
-                    <div class="hero-seal-meta">
-                        <span class="seal-caption">Засновано у 1997 році</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -64,10 +62,8 @@
 <section class="announcement-section" aria-label="Оголошення">
     <div class="container">
         <div class="announcement-banner">
-            <div class="announcement-icon-wrapper" aria-hidden="true">
-                <i class="bi bi-megaphone-fill"></i>
-            </div>
             <div class="announcement-content">
+                <span class="announcement-tag">Оголошення</span>
                 {{ page.announcement|richtext }}
             </div>
         </div>

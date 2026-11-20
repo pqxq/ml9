@@ -93,7 +93,7 @@
         padding: 0.45rem 0.85rem;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         color: #ffffff;
         font-size: 0.85rem;
         font-weight: 500;
@@ -131,18 +131,16 @@
         margin-bottom: clamp(2.25rem, 3.5vw, 3rem);
     }
     .about-section-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.25rem 0.65rem;
-        background: var(--gray-100);
-        border: 1px solid var(--border-hairline);
-        border-radius: 4px;
-        color: var(--primary);
+        display: inline-block;
+        padding: 0;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        color: var(--muted);
         font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
         margin-bottom: 0.75rem;
     }
     .about-section-title {
@@ -169,7 +167,7 @@
     }
     .about-stat-card {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: 2rem 1.5rem;
         text-align: center;
         border: 1px solid var(--border-hairline);
@@ -181,7 +179,7 @@
     .about-stat-icon-box {
         width: 52px;
         height: 52px;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         background: var(--gray-100);
         color: var(--primary);
         display: flex;
@@ -216,7 +214,7 @@
     /* Executive Intro Card */
     .about-intro-box {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: clamp(2rem, 4vw, 3rem);
         border: 1px solid var(--border-hairline);
         border-left: 4px solid var(--accent);
@@ -240,7 +238,7 @@
         gap: 0.75rem;
         padding: 0.75rem 1rem;
         background: var(--gray-50);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         border: 1px solid var(--border-hairline);
         font-size: 0.9rem;
         font-weight: 600;
@@ -255,7 +253,7 @@
     /* Mission & Values Bento */
     .bento-card {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: clamp(2rem, 3.5vw, 2.5rem);
         border: 1px solid var(--border-hairline);
         height: 100%;
@@ -269,7 +267,7 @@
     .bento-icon-wrapper {
         width: 52px;
         height: 52px;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         background: var(--gray-100);
         color: var(--primary);
         display: flex;
@@ -304,7 +302,7 @@
         gap: 0.75rem;
         padding: 0.75rem 1rem;
         background: var(--gray-50);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         border: 1px solid var(--border-hairline);
         transition: border-color 0.15s ease;
     }
@@ -332,7 +330,7 @@
     /* Academic Profiles Grid */
     .profile-card {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: 1.75rem 1.5rem;
         border: 1px solid var(--border-hairline);
         height: 100%;
@@ -348,7 +346,7 @@
         padding: 0.25rem 0.6rem;
         background: var(--gray-100);
         border: 1px solid var(--border-hairline);
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -359,7 +357,7 @@
     .profile-icon {
         width: 48px;
         height: 48px;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         background: var(--gray-100);
         color: var(--primary);
         display: flex;
@@ -390,7 +388,7 @@
         font-size: 0.75rem;
         background: var(--gray-50);
         border: 1px solid var(--border-hairline);
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         padding: 0.2rem 0.5rem;
         color: var(--gray-700);
     }
@@ -398,7 +396,7 @@
     /* Subpage Directory Cards */
     .subpage-card {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: 1.75rem;
         border: 1px solid var(--border-hairline);
         height: 100%;
@@ -422,7 +420,7 @@
     .subpage-icon {
         width: 48px;
         height: 48px;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         background: var(--gray-100);
         color: var(--primary);
         display: flex;
@@ -434,12 +432,12 @@
         font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
-        color: var(--accent);
+        color: var(--muted);
         letter-spacing: 0.05em;
         background: var(--gray-50);
         border: 1px solid var(--border-hairline);
         padding: 0.2rem 0.5rem;
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
     }
     .subpage-title {
         font-size: 1.2rem;
@@ -466,7 +464,7 @@
     /* Campus & Facilities Showcase */
     .facility-box {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         overflow: hidden;
         border: 1px solid var(--border-hairline);
     }
@@ -485,7 +483,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(14, 34, 56, 0.9);
+        background: rgba(12, 27, 46, 0.9);
         padding: 1.75rem 2rem;
         color: #ffffff;
     }
@@ -510,7 +508,7 @@
     .facility-feature-icon {
         width: 44px;
         height: 44px;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         background: var(--gray-100);
         color: var(--primary);
         display: flex;
@@ -539,7 +537,7 @@
     }
     .editorial-paper {
         background: var(--white);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: clamp(2rem, 4.5vw, 3.5rem);
         border: 1px solid var(--border-hairline);
     }
@@ -569,7 +567,7 @@
     .about-accordion .accordion-item {
         background: var(--white);
         border: 1px solid var(--border-hairline);
-        border-radius: 6px !important;
+        border-radius: var(--radius-md);
         margin-bottom: 0.75rem;
         overflow: hidden;
     }
@@ -579,15 +577,15 @@
         color: var(--primary);
         padding: 1rem 1.25rem;
         background: var(--white);
-        border-radius: 6px !important;
+        border-radius: var(--radius-md);
         box-shadow: none;
     }
     .about-accordion .accordion-button:not(.collapsed) {
         background: var(--gray-50);
         color: var(--primary);
         border-bottom: 1px solid var(--border-hairline);
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     .about-accordion .accordion-body {
         padding: 1.25rem;
@@ -600,7 +598,7 @@
     /* High-Impact CTA Banner */
     .about-cta-card {
         background: var(--color-navy-900);
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
         color: #ffffff;
         border: 1px solid var(--border-dark);
