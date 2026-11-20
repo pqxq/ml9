@@ -72,10 +72,18 @@ def build_schedule_data(lessons):
                     lesson_number,
                     {
                         "time": LESSON_TIMES.get(lesson_number, ""),
+                        "para_time": LESSON_TIMES.get(lesson_number, ""),
                         "para": PARA_BY_LESSON_NUMBER.get(int(lesson_number), ""),
                         "lessons": {},
                     },
                 )
+                if lesson.para_part == 0 and index == 0:
+                    row["para_time"] = getattr(
+                        lesson,
+                        "time",
+                        f"{LESSON_TIMES.get(lesson_number, '').split(' – ')[0]} – "
+                        f"{LESSON_TIMES.get(lesson_number + 1, '').split(' – ')[-1]}",
+                    )
 
                 class_lessons = row["lessons"].setdefault(lesson.class_group_id, [])
                 class_lessons.append(
