@@ -1747,7 +1747,7 @@ button[aria-busy="true"] {
 .home-hero.page-hero {
     background-color: var(--color-navy-950);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: clamp(3.75rem, 5.8vw, 5.25rem) 0;
+    padding: 120px 0 44px;
     isolation: isolate;
     position: relative;
     overflow: hidden;
@@ -1759,49 +1759,50 @@ button[aria-busy="true"] {
     background-image: var(--hero-bg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: right 38%;
-    filter: blur(6px);
-    -webkit-filter: blur(6px);
-    transform: scale(1.04);
+    background-position: center 48%;
     z-index: 0;
     pointer-events: none;
 }
 
-.home-hero::before,
-.home-hero.page-hero::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(
-        90deg,
-        rgba(13, 33, 58, 0.94) 0%,
-        rgba(13, 33, 58, 0.78) 55%,
-        rgba(13, 33, 58, 0.45) 100%
-    );
-    z-index: 1;
-    pointer-events: none;
-}
-
+/* z-index 1: progressive bottom-to-top blur layer */
 .home-hero::after,
 .home-hero.page-hero::after {
     content: "";
     position: absolute;
-    top: 8%;
-    left: -6%;
-    width: 440px;
-    height: 440px;
-    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.14) 0%, transparent 68%);
-    z-index: 0;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 78%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 78%);
+    z-index: 1;
     pointer-events: none;
 }
 
+/* z-index 2: deep navy readability tint — no mask so it covers the full Hero */
+.home-hero::before,
+.home-hero.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(11, 28, 50, 0.56) 0%,
+        rgba(11, 28, 50, 0.84) 40%,
+        rgba(11, 28, 50, 0.92) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* z-index 3: foreground content */
 .home-hero .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .home-hero-grid {
     row-gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: flex-start !important;
 }
 
 .home-hero .hero-content {
@@ -2195,14 +2196,13 @@ button[aria-busy="true"] {
 }
 
 .announcement-tag {
-    display: inline-flex;
-    align-items: center;
+    display: block;
     min-height: 24px;
-    margin-bottom: 0.45rem;
-    color: #96702E;
-    font-size: 0.9375rem;
+    margin-bottom: 6px;
+    color: #9a6708;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
 }
 
@@ -7004,18 +7004,21 @@ u,
 
     .hero-bg-layer {
         background-position: center 65%;
-        filter: blur(6px) brightness(0.82);
-        -webkit-filter: blur(6px) brightness(0.82);
+    }
+
+    .home-hero::after,
+    .home-hero.page-hero::after {
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 82%);
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0) 82%);
     }
 
     .home-hero::before,
     .home-hero.page-hero::before {
-        inset: -1px;
         background: linear-gradient(
             180deg,
-            rgba(11, 28, 50, 0.84) 0%,
-            rgba(11, 28, 50, 0.78) 55%,
-            rgba(11, 28, 50, 0.88) 100%
+            rgba(11, 28, 50, 0.78) 0%,
+            rgba(11, 28, 50, 0.85) 45%,
+            rgba(11, 28, 50, 0.92) 100%
         );
     }
 
