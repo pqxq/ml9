@@ -5,14 +5,14 @@
 
 {% block content %}
 <section class="home-hero" aria-labelledby="home-hero-title" style="--hero-bg: url('{% static 'images/licey.webp' %}');">
+    <div class="hero-bg-layer" aria-hidden="true"></div>
     <div class="container">
         <div class="home-hero-grid row align-items-center gy-4 gy-lg-0">
             <!-- Left Column: Primary Identity & Direct Actions -->
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-8">
                 <div class="hero-content">
-                    <span class="hero-kicker">Засновано у 1997 році</span>
                     <h1 class="hero-title" id="home-hero-title">
-    <span class="highlight">Миколаївський ліцей №9</span>
+    <span class="highlight">Миколаївський <span class="whitespace-nowrap">ліцей №9</span></span>
 </h1>
 <p class="hero-subtitle">
     Профільна освіта, що готує до університету.
@@ -31,27 +31,28 @@
                     <!-- Domain-Specific Institutional Metrics -->
                     <div class="hero-metrics-strip">
                         <div class="hero-metric-item" data-mobile-label="10–11 класи">
-                            <span class="metric-value">10–11</span>
-                            <span class="metric-label">Класи навчання</span>
+                            <span class="metric-value">10–12</span>
+                            <span class="metric-label">класи</span>
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
                         <div class="hero-metric-item" data-mobile-label="МНАУ та ЧНУ">
-                            <span class="metric-value">МНАУ &amp; ЧНУ</span>
-                            <span class="metric-label">Партнерство з ВНЗ</span>
+                            <span class="metric-value">МНАУ і ЧНУ</span>
+                            <span class="metric-label">партнери</span>
                         </div>
                         <div class="hero-metric-divider" aria-hidden="true"></div>
                         <div class="hero-metric-item" data-mobile-label="Безоплатно">
                             <span class="metric-value">100%</span>
-                            <span class="metric-label">Безоплатна освіта</span>
+                            <span class="metric-label">безоплатно</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Right Column: Institutional Seal -->
-            <div class="col-12 col-lg-5 text-center text-lg-end">
+            <div class="col-12 col-lg-4 text-center text-lg-end">
                 <div class="hero-seal-panel">
                     <img src="{% static 'images/emblem.webp' %}" alt="Герб Миколаївського ліцею №9" class="hero-emblem-img img-fluid" width="300" height="300" loading="eager" fetchpriority="high" decoding="async">
+                    <span class="hero-seal-founded">Засновано у 1997 році</span>
                 </div>
             </div>
         </div>
